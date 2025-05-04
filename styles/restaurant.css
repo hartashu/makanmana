@@ -1,0 +1,116 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*
+  Style
+*/
+
+.restaurant-rating,
+.customer-rating {
+  display: flex;
+  align-items: center;
+  gap: 1ch;
+}
+
+.restaurant-rating img,
+.customer-rating img {
+  height: 1.5rem;
+}
+
+.restaurant-rating p:first-child {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.not-rated {
+  color: rgb(163, 163, 163);
+  font-size: 12px;
+}
+
+.restaurant-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.food-image {
+  width: 300px;
+}
+
+.customer-review {
+  border: 1px solid black;
+}
+
+
+#give-review-textarea {
+  display: block;
+  width: 80%;
+}
+
+@media screen and (min-width: 720px) {
+  .restaurant-detail-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

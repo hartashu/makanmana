@@ -1,0 +1,90 @@
+:root {
+  --clr-primary: rgb(167, 101, 69);
+  --clr-secondary: rgb(255, 165, 93);
+  --clr-secondary2: rgb(255, 223, 136);
+  --clr-secondary3: rgb(172, 197, 114);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/*
+  Style
+*/
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.card {
+  border: 2px solid black;
+  box-shadow: 10px 10px 10px rgb(172, 197, 114, 0.5);
+}
+
+.card__image {
+  width: 360px;
+}
