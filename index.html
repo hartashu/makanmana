@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="./styles/home.css">
+  <script defer type="module" src="./scripts/home.js"></script>
+</head>
+
+<body>
+  <header></header>
+
+  <main>
+    <h1>HOME</h1>
+    <!-- <div>
+      <h2>Give you inspiration for what to eat!</h2>
+      <div>
+        <button>Login</button>
+        <button>Register</button>
+      </div>
+    </div> -->
+
+    <div class="modal-sign-in">
+      <!-- <form action="" id="login-form"> -->
+      <div>
+        <label for="login-username">Username:</label>
+        <input type="text" id="login-username" name="login-username">
+      </div>
+
+      <div>
+        <label for="login-password">Password:</label>
+        <input type="text" id="login-password" name="login-password">
+      </div>
+
+      <button type="submit" id="login-button">Login</button>
+      <!-- </form> -->
+
+      <p id="login-error"></p>
+    </div>
+
+    <div class="modal-register">
+      <div>
+        <label for="regiter-username">Username:</label>
+        <input type="text" id="register-username" name="register-username">
+      </div>
+
+      <div>
+        <label for="register-password">Password:</label>
+        <input type="text" id="register-password" name="register-password">
+      </div>
+
+      <div>
+        <label for="register-confirm-password">Password:</label>
+        <input type="text" id="register-confirm-password" name="register-confirm-password">
+      </div>
+
+      <button type="submit" id="register-button">Register</button>
+
+      <p id="register-error"></p>
+    </div>
+  </main>
+
+  <footer></footer>
+</body>
+
+</html>
