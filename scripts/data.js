@@ -451,8 +451,8 @@ const defaultRestaurants = [
       count: undefined,
     },
     operatingHours: {
-      openingHours: "10:00 AM",
-      closingHours: "8:00 PM"
+      openingHours: "10:00",
+      closingHours: "20:00"
     },
     menus: [
       
