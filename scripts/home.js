@@ -1,16 +1,14 @@
-import { accounts, currentAccount, setCurrentAccount, registerNewAccount } from "./account.js";
+import { getDbAccounts, getCurrentAccount, setCurrentAccount, registerNewAccount } from "./account.js";
 
-if (currentAccount) window.location.href = '../restaurants.html';
+if (getCurrentAccount()) window.location.href = '../restaurants.html';
 
 /*
   Login Logic
 */
 
 function isUserRegistered(username, password) {
-  for (const account of accounts) {
-    if (username === account.username && password === account.password) {
-      return true;
-    }
+  for (const account of getDbAccounts()) {
+    if (username === account.username && password === account.password) return true;
   }
 
   return false;
@@ -18,7 +16,6 @@ function isUserRegistered(username, password) {
 
 const loginUsernameEl = document.querySelector('#login-username');
 const loginPasswordEl = document.querySelector('#login-password');
-const loginButtonEl = document.querySelector('#login-button');
 const loginErrorEl = document.querySelector('#login-error');
 const loginFormEl = document.querySelector('#login-form');
 
@@ -43,8 +40,7 @@ loginFormEl.addEventListener('submit', (event) => {
 
 const registerUsernameEl = document.querySelector('#register-username');
 const registerPasswordEl = document.querySelector('#register-password');
-const registerButtonEl = document.querySelector('#register-button');
-const registerSuccessEl = document.querySelector('#register-info');
+const registerInfoEl = document.querySelector('#register-info');
 const registerFormEl = document.querySelector('#register-form');
 
 registerFormEl.addEventListener('submit', (event) => {
@@ -55,8 +51,8 @@ registerFormEl.addEventListener('submit', (event) => {
 
   if (username.length && password.length) {
     registerNewAccount(username, password);
-    registerSuccessEl.innerText = 'Register successfully';
+    registerInfoEl.innerText = 'Register successfully';
   } else {
-    registerSuccessEl.innerText = 'Register failed';
+    registerInfoEl.innerText = 'Register failed';
   }
 });

@@ -1,4 +1,4 @@
-export const accounts = JSON.parse(localStorage.getItem('accounts')) || [{
+const defaultAccounts = [{
   username: 'hartashu',
   password: '111'
 }, {
@@ -15,7 +15,17 @@ export const accounts = JSON.parse(localStorage.getItem('accounts')) || [{
   password: '555'
 }];
 
-export let currentAccount = localStorage.getItem('currentAccount');
+const accounts = JSON.parse(localStorage.getItem('accounts')) || defaultAccounts;
+
+let currentAccount = localStorage.getItem('currentAccount');
+
+export function getDbAccounts() {
+  return accounts;
+}
+
+export function getCurrentAccount() {
+  return currentAccount;
+}
 
 export function setCurrentAccount(account) {
   currentAccount = account;
@@ -27,7 +37,7 @@ export function removeCurrentAccount() {
   localStorage.removeItem('currentAccount');
 }
 
-export function saveAccountsToDatabase() {
+function saveAccountsToDatabase() {
   localStorage.setItem('accounts', JSON.stringify(accounts));
 }
 
