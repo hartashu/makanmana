@@ -1,4 +1,4 @@
-import { accounts, currentAccount, setCurrentAccount } from "./account.js";
+import { accounts, currentAccount, setCurrentAccount, registerNewAccount } from "./account.js";
 
 if (currentAccount) window.location.href = '../restaurants.html';
 
@@ -16,14 +16,17 @@ function isUserRegistered(username, password) {
   return false;
 }
 
-const usernameEl = document.querySelector('#login-username');
-const passwordEl = document.querySelector('#login-password');
+const loginUsernameEl = document.querySelector('#login-username');
+const loginPasswordEl = document.querySelector('#login-password');
 const loginButtonEl = document.querySelector('#login-button');
 const loginErrorEl = document.querySelector('#login-error');
+const loginFormEl = document.querySelector('#login-form');
 
-loginButtonEl.addEventListener('click', (event) => {
-  const username = usernameEl.value;
-  const password = passwordEl.value;
+loginFormEl.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const username = loginUsernameEl.value;
+  const password = loginPasswordEl.value;
 
   if (isUserRegistered(username, password)) {
     setCurrentAccount(username);
@@ -38,3 +41,22 @@ loginButtonEl.addEventListener('click', (event) => {
   Register Logic
 */
 
+const registerUsernameEl = document.querySelector('#register-username');
+const registerPasswordEl = document.querySelector('#register-password');
+const registerButtonEl = document.querySelector('#register-button');
+const registerSuccessEl = document.querySelector('#register-info');
+const registerFormEl = document.querySelector('#register-form');
+
+registerFormEl.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  const username = registerUsernameEl.value.trim();
+  const password = registerPasswordEl.value.trim();
+
+  if (username.length && password.length) {
+    registerNewAccount(username, password);
+    registerSuccessEl.innerText = 'Register successfully';
+  } else {
+    registerSuccessEl.innerText = 'Register failed';
+  }
+});

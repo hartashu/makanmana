@@ -49,4 +49,27 @@ logoutButtonEl.addEventListener('click', () => {
 // console.log(getFilteredMenusByAscendingName());
 // console.log(getFilteredMenusByDescendingName());
 
-console.log(getFilteredMenusByCuisine('Korean'));
+// console.log(getFilteredMenusByCuisine('Korean'));
+
+let cardsHtml = '';
+
+for (const menu of menus) {
+cardsHtml += `
+  <div class="card">
+    <img src="${menu.image}" alt="" class="card-image">
+    <div class="card-text">
+      <h3>${menu.name}</h3>
+      <p>Price: Rp. ${menu.price}</p>
+
+      <div class="card-detail">
+        <div>
+          <p>Restaurant: ${restaurant.name}</p>
+          ${getRestaurantRating(restaurant)}
+        </div>
+        <p class="card-location">Location: ${restaurant.location}</p>
+      </div>
+
+    </div>
+  </div>
+`;
+}

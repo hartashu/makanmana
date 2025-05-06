@@ -11,51 +11,161 @@
 </head>
 
 <body>
-  <header></header>
+  <header>
+    <button class="logout-button">Logout</button>
+  </header>
 
-  <main class="main">
+  <div class="wrapper">
+    <aside class="aside">
+      <div class="filter">
+        <h2>Search Filter</h2>
 
-    <div class="filter">
-      <h2>Searching Filter</h2>
+        <form action="" id="filter-form">
+          <div>
+            <label for="filter-location">Choose your location:</label>
+            <select name="filter-location" id="filter-location">
+              <option value="Gading Serpong">Gading Serpong</option>
+              <option value="BSD">BSD</option>
+              <option value="Alam Sutera">Alam Sutera</option>
+            </select>
+          </div>
 
-      <div>
-        <label for="filter-location">Choose your location:</label>
-        <select name="filter-location" id="filter-location">
-          <option value="Gading Serpong">Gading Serpong</option>
-          <option value="BSD">BSD</option>
-          <option value="Alam Sutera">Alam Sutera</option>
-        </select>
+          <br><br>
+
+          <div>
+            <label>Price range:</label>
+            <br>
+            <input type="text" name="filter-price-max" id="filter-price-min">
+            <span>-</span>
+            <input type="text" name="filter-price-max" id="filter-price-max">
+          </div>
+
+          <br><br>
+
+          <div>
+            <label for="filter-cuisine">Cuisine:</label>
+            <select name="filter-cuisine" id="filter-cuisine">
+              <option value="Indonesian">Indonesian</option>
+              <option value="Chinese">Indonesian</option>
+              <option value="Western">Indonesian</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Korean">Korean</option>
+              <option value="Padang">Padang</option>
+              <option value="Fast Food">Fast Food</option>
+              <option value="Noodles">Noodles</option>
+              <option value="Dessert">Snack</option>
+              <option value="Beverages">Beverages</option>
+            </select>
+          </div>
+
+          <br><br>
+
+          <div>
+            <label for="filter-rating">Rating minimal:</label>
+            <input type="text" name="filter-rating" id="filter-rating">
+          </div>
+
+          <br><br>
+
+          <button type="submit">Filter</button>
+        </form>
       </div>
-    </div>
+    </aside>
 
-    <div class="cards">
 
-      <div class="card">
-        <div class="card__media">
-          <img src="./images/food/1.png" alt="" class="card__image">
-        </div>
 
-        <div class="card__text">
-          <h2>Soto/Sop Oseng Ayam</h2>
-          <p>Rp. 35.000</p>
 
-          <div class="card__restaurant-profile">
-            <div>
-              <p>Restaurant: Soto Betawi Bang Ebet</p>
-              <p>*****</p>
+
+
+
+
+
+
+
+
+
+
+
+
+    <main class="main">
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="card__media">
+            <img src="./images/food/1.png" alt="" class="card__image">
+          </div>
+
+          <div class="card__text">
+            <h2>Soto/Sop Oseng Ayam</h2>
+            <p>Rp. 35.000</p>
+
+            <div class="card__restaurant-profile">
+              <div>
+                <p class="card__restaurant-name">Restaurant: Soto Betawi Bang Ebet</p>
+                <div>
+                  <p>4.0</p>
+                  <img src="./images/ratings/rating-40.png" alt="">
+                  <p>(1251)</p>
+                </div>
+              </div>
+              <p class="card__location">Location: Gading Serpong</p>
             </div>
-            <p>Location: Gading Serpong</p>
           </div>
         </div>
+
+        <div class="card">
+          <div class="card__media">
+            <img src="./images/food/1.png" alt="" class="card__image">
+          </div>
+
+          <div class="card__text">
+            <h2>Soto/Sop Oseng Ayam</h2>
+            <p>Rp. 35.000</p>
+
+            <div class="card__restaurant-profile">
+              <div>
+                <p class="card__restaurant-name">Restaurant: Soto Betawi Bang Ebet</p>
+                <div>
+                  <p>4.0</p>
+                  <img src="./images/ratings/rating-40.png" alt="">
+                  <p>(1251)</p>
+                </div>
+              </div>
+              <p class="card__location">Location: Gading Serpong</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card__media">
+            <img src="./images/food/1.png" alt="" class="card__image">
+          </div>
+
+          <div class="card__text">
+            <h2>Soto/Sop Oseng Ayam</h2>
+            <p>Rp. 35.000</p>
+
+            <div class="card__restaurant-profile">
+              <div>
+                <p class="card__restaurant-name">Restaurant: Soto Betawi Bang Ebet</p>
+                <div>
+                  <p>4.0</p>
+                  <img src="./images/ratings/rating-40.png" alt="">
+                  <p>(1251)</p>
+                </div>
+              </div>
+              <p class="card__location">Location: Gading Serpong</p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-    </div>
+    </main>
+  </div>
 
-  </main>
 
-  <button class="logout-button">Logout</button>
-
-  <footer></footer>
 </body>
 
 </html>

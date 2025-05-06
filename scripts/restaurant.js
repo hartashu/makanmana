@@ -7,7 +7,7 @@ function getRestaurant(restaurantId) {
   let restaurant;
 
   for (const element of restaurants) {
-    if (element.restaurantId === restaurantId) restaurant = element;
+    if (restaurantId === element.restaurantId) restaurant = element;
   }
 
   return restaurant;
@@ -20,7 +20,7 @@ function getRestaurantRatingImage(restaurant) {
 }
 
 function getRestaurantRating(restaurant) {
-  if (!restaurant.rating || isNaN(restaurant.rating)) return '<p class="not-rated">This restaurant has not been rated yet</p>';
+  if (!restaurant.rating /*|| isNaN(restaurant.rating)*/) return '<p class="not-rated">This restaurant has not been rated yet</p>';
 
   return `
     <div class="restaurant-rating">
@@ -53,51 +53,75 @@ function getCustomerRating(review) {
 let restaurantId;
 
 window.addEventListener('load', () => {
-  const url = document.location.search;
-  const query = new URLSearchParams(url);
-  restaurantId = Number(query.get('restaurantId'));
+  // const url = document.location.search;
+  // const query = new URLSearchParams(url);
+  // restaurantId = Number(query.get('restaurantId'));
+  restaurantId = 1;
   renderRestaurantPage();
 })
 
-
-
 /*
-  Restaurant details
+  Render page
 */
 
 function renderRestaurantPage() {
-
-  const restaurant = getRestaurant(restaurantId);
-
-  const menus = restaurant.menus;
-  let cardsHtml = '';
   
+  const restaurant = getRestaurant(restaurantId);
+  
+  /*
+    Restaurant details
+  */
+
   const restaurantDetailEl = document.querySelector('.restaurant-detail');
   
+  restaurantDetailEl.innerHTML = `
+    <div class="restaurant-detail-left">
+      <h1>${restaurant.name}</h1>
+      ${getRestaurantRating(restaurant)}
+    </div>
+
+    <div class="restaurant-detail-right">
+      <p><span>Address:<span> ${restaurant.address}</p>
+      <p><span>Location:<span> ${restaurant.location}</p>
+      <p><span>Operating Hours:<span> ${restaurant.operatingHours.openingHours} - ${restaurant.operatingHours.closingHours}</p>
+      <p><span>Website:<span> ${restaurant.website}</p>
+    </div>
+  `;
+
+  /*
+    Restaurant menus
+  */
+
+ 
+  const restaurantNameEl = document.querySelector('.restaurant-name');
+  restaurantNameEl.innerHTML = restaurant.name + ` <span class='menus'>Menus</span>`;
+ 
+  const menus = restaurant.menus;
+  let cardsHtml = '';
+
   for (const menu of menus) {
     cardsHtml += `
       <div class="card">
-        <img src="${menu.image}" alt="" class="food-image">
-        <h3>${menu.name}</h3>
-        <p>Price: Rp. ${menu.price}</p>
+        <img src="${menu.image}" alt="" class="card-image">
+        <div class="card-text">
+          <h3>${menu.name}</h3>
+          <p>Price: Rp. ${menu.price}</p>
+
+          <div class="card-detail">
+            <div>
+              <p>Restaurant: ${restaurant.name}</p>
+              ${getRestaurantRating(restaurant)}
+            </div>
+            <p class="card-location">Location: ${restaurant.location}</p>
+          </div>
+
+        </div>
       </div>
     `;
   }
-  
-  restaurantDetailEl.innerHTML = `
-      <h1>${restaurant.name}</h1>
-      ${getRestaurantRating(restaurant)}
-      <p>Address: ${restaurant.address}</p>
-      <p>Location: ${restaurant.location}</p>
-      <p>Operating Hours: ${restaurant.operatingHours.openingHours} - ${restaurant.operatingHours.closingHours}</p>
-      <p>Website: ${restaurant.website}</p>
-  
-      <h2>${restaurant.name} Menu</h2>
-  
-      <div class="restaurant-detail-grid">
-        ${cardsHtml}
-      </div>
-  `;
+
+  const restaurantMenusGridEl = document.querySelector('.restaurant-menus-grid');
+  restaurantMenusGridEl.innerHTML = cardsHtml;
   
   /*
     Show reviews
@@ -122,7 +146,7 @@ function renderRestaurantPage() {
   customerReviewsEl.innerHTML = reviewsHtml;
   
   /*
-    Give review
+    Give review - Fix
   */
   
   const giveReviewFormEl = document.querySelector('#give-review-form');
@@ -159,6 +183,7 @@ function renderRestaurantPage() {
     updateCurrentRestaurantRating(restaurant);
     saveRestaurantsToLocalStorage();
     renderRestaurantPage();
+    
   });
   
   /*

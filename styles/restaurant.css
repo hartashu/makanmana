@@ -1,3 +1,12 @@
+:root {
+  --clr-primary: rgb(178, 44, 43);
+  --clr-secondary: rgb(255, 245, 240);
+}
+
+/*
+  CSS reset
+*/
+
 *,
 *::before,
 *::after {
@@ -67,6 +76,173 @@ h6 {
   Style
 */
 
+body {
+  background-color: var(--clr-secondary);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/*
+  Restaurant detail
+*/
+
+.restaurant-detail {
+  /* background-color: var(--clr-primary); */
+  /* color: var(--clr-secondary); */
+  border: 2px solid black;
+
+  width: 80%;
+  margin: auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  align-items: center;
+
+  padding: 1rem;
+}
+
+.restaurant-detail-left {
+  margin: auto;
+}
+
+.restaurant-detail-left>h1 {
+  font-size: 3.5rem;
+}
+
+.restaurant-detail-right {
+  font-size: 1.2rem;
+  padding-right: 2rem;
+}
+
+/*
+  Restaurant menus
+*/
+
+.restaurant-menus {
+  border: 2px solid black;
+
+  width: 80%;
+  margin: auto;
+  padding: 1rem;
+}
+
+.restaurant-name {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.restaurant-menus-grid {
+  padding: 2rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  border: 1px solid black;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+}
+
+.card-text {
+  padding: 1.5rem;
+}
+
+.card-text h3 {
+  font-size: 2rem;
+}
+
+.card-detail {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+
+  margin-top: 2rem;
+}
+
+/*
+  Customer reviews
+*/
+
+
+
+.customer-reviews-container {
+  border: 2px solid black;
+  width: 80%;
+  margin: auto;
+  padding: 1rem;
+}
+
+.customer-reviews-container>h2 {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.customer-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+
+.customer-review {
+  border: 1px solid black;
+  padding: 2rem;
+}
+
+/*
+  Give review
+*/
+
+.give-review {
+  /* width: 80%; */
+  /* margin: auto; */
+
+  border: 5px dashed black;
+  background-color: white;
+
+  position: fixed;
+  right: 5%;
+  bottom: 5%;
+
+  width: 30%;
+  height: 300px;
+
+  padding: 2rem;
+}
+
+#give-review-textarea {
+  display: block;
+  width: 100%;
+}
+
+/*
+  Back and logout button
+*/
+
+.header {
+  position: fixed;
+  left: 2%;
+  top: 2%;
+}
+
+
+
+
+
+
+
 .restaurant-rating,
 .customer-rating {
   display: flex;
@@ -87,30 +263,4 @@ h6 {
 .not-rated {
   color: rgb(163, 163, 163);
   font-size: 12px;
-}
-
-.restaurant-detail-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-}
-
-.food-image {
-  width: 300px;
-}
-
-.customer-review {
-  border: 1px solid black;
-}
-
-
-#give-review-textarea {
-  display: block;
-  width: 80%;
-}
-
-@media screen and (min-width: 720px) {
-  .restaurant-detail-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }

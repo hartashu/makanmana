@@ -30,3 +30,12 @@ export function removeCurrentAccount() {
 export function saveAccountsToDatabase() {
   localStorage.setItem('accounts', JSON.stringify(accounts));
 }
+
+export function registerNewAccount(username, password) {
+  accounts.push({
+    username,
+    password
+  });
+
+  saveAccountsToDatabase();
+}
