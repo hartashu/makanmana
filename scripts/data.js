@@ -50,7 +50,16 @@ const defaultRestaurants = [
         image: './images/food/1.png',
         price: 87_000
       }
-    ]
+    ],
+    reviews: [{
+      username: 'ombotak',
+      stars: 5,
+      comment: 'Sangat enak sekali'
+    }, {
+      username: 'hartashu',
+      stars: 5,
+      comment: 'Tidak enak'
+    }]
   },
   {
     restaurantId: 2,
@@ -455,7 +464,31 @@ const defaultRestaurants = [
       closingHours: "20:00"
     },
     menus: [
-      
+      {
+        name: "Sayur Asem",
+        image: './images/food/1.png',
+        price: 26_900
+      },
+      {
+        name: "Ayam Bakar ",
+        image: './images/food/1.png',
+        price: 48_200
+      },
+      {
+        name: "Gado Gado Lontong",
+        image: './images/food/1.png',
+        price: 55_000
+      },
+      {
+        name: "Empal Madiun",
+        image: './images/food/1.png',
+        price: 56_400
+      },
+      {
+        name: "Lontong Sayur",
+        image: './images/food/1.png',
+        price: 45_200
+      }
     ]
   },
   {
@@ -470,11 +503,35 @@ const defaultRestaurants = [
       count: undefined,
     },
     operatingHours: {
-      openingHours: "7:00 AM",
-      closingHours: "11:00 PM"
+      openingHours: "07:00",
+      closingHours: "23:00"
     },
     menus: [
-      
+      {
+        name: "Sate Kulit Ayam Digoreng",
+        image: './images/food/1.png',
+        price: 22_500
+      },
+      {
+        name: "Soto Betawi Ayam Bagian Dada",
+        image: './images/food/1.png',
+        price: 42_000
+      },
+      {
+        name: "Nasi Goreng Campur Isian Sapi",
+        image: './images/food/1.png',
+        price: 45_000
+      },
+      {
+        name: "Sop Oseng Daging Sapi ",
+        image: './images/food/1.png',
+        price: 51_000
+      },
+      {
+        name: "Ayam Goreng Bawang Putih (Dada Filet 250gr)",
+        image: './images/food/1.png',
+        price: 59_500
+      }
     ]
   },
   {
@@ -486,14 +543,38 @@ const defaultRestaurants = [
     cuisine: "Chinese",
     rating: {
       stars: undefined,
-      count: undefinedined,
+      count: undefined,
     },
     operatingHours: {
-      openingHours: "10:00 AM",
-      closingHours: "9.45 pm"
+      openingHours: "10:00",
+      closingHours: "21.45"
     },
     menus: [
-      
+      {
+        name: "Bakmi Ahog (Crispy Pork)",
+        image: './images/food/1.png',
+        price: 41_000
+      },
+      {
+        name: "Bakmi Charsiu",
+        image: './images/food/1.png',
+        price: 55_000
+      },
+      {
+        name: "Hainan Chicken Rice",
+        image: './images/food/1.png',
+        price: 40_000
+      },
+      {
+        name: "Pork Knuckle",
+        image: './images/food/1.png',
+        price: 58_000
+      },
+      {
+        name: "BBQ Pork Belly",
+        image: './images/food/1.png',
+        price: 60_000
+      }
     ]
   },
   {
@@ -508,11 +589,35 @@ const defaultRestaurants = [
       count: undefined,
     },
     operatingHours: {
-      openingHours: "8:00 AM",
-      closingHours: "11.00 pm"
+      openingHours: "08:00",
+      closingHours: "23.00"
     },
     menus: [
-      
+      {
+        name: "Brulee Chiato",
+        image: './images/food/1.png',
+        price: 39_655
+      },
+      {
+        name: "Literally Kopi Susu",
+        image: './images/food/1.png',
+        price: 33_990
+      },
+      {
+        name: "Black On The Rock",
+        image: './images/food/1.png',
+        price: 28_325
+      },
+      {
+        name: "Dark Mocha HQQ",
+        image: './images/food/1.png',
+        price: 36_256
+      },
+      {
+        name: "Kopi Susu Tiramisu",
+        image: './images/food/1.png',
+        price: 38_552
+      }
     ]
   },
   {
@@ -527,131 +632,83 @@ const defaultRestaurants = [
       count: undefined,
     },
     operatingHours: {
-      openingHours: "8:00 AM",
-      closingHours: "9.00 pm"
+      openingHours: "08:00",
+      closingHours: "21.00"
     },
     menus: [
-      
+      {
+        name: "Roti Sweet Cheese",
+        image: './images/food/1.png',
+        price: 15_400
+      },
+      {
+        name: "Roti Baso Ayam Telur Asin",
+        image: './images/food/1.png',
+        price: 17_800
+      },
+      {
+        name: "Roti Sosis",
+        image: './images/food/1.png',
+        price: 19_000
+      },
+      {
+        name: "Roti Pisang Coklat Keju",
+        image: './images/food/1.png',
+        price: 17_800
+      },
+      {
+        name: "Roti Pizza",
+        image: './images/food/1.png',
+        price: 20_400
+      }
+    ]
+  },
+  {
+    restaurantId: 16,
+    name: "Restorant Dewa",
+    address: "GOP 1 Ruang Blabla",
+    location: "BSD",
+    website: "",
+    cuisine: "Indonesian",
+    rating: {
+      stars: undefined,
+      count: undefined,
+    },
+    operatingHours: {
+      openingHours: "09:00",
+      closingHours: "18.00"
+    },
+    menus: [
+      {
+        name: "Bubur Ayam Besi Tembaga",
+        image: './images/food/1.png',
+        price: 1_680_000
+      },
+      {
+        name: "Nasi Goreng Aking",
+        image: './images/food/1.png',
+        price: 888_888
+      },
+      {
+        name: "Air Comberan",
+        image: './images/food/1.png',
+        price: 666_000
+      },
+      {
+        name: "Kerak Arang",
+        image: './images/food/1.png',
+        price: 999_999
+      },
+      {
+        name: "Roti Gosong",
+        image: './images/food/1.png',
+        price: 777_777
+      }
     ]
   }
 ];
 
-/*
-const defaultRestaurants = [{
-  restaurantId: 1,
-  name: 'Soto Betawi Bang Ebet',
-  address: 'Ruko Madison Grande Blok L 58, Gading, Kec. Serpong, Kabupaten Tangerang, Banten 15334',
-  location: 'Gading Serpong',
-  website: 'https://www.instagram.com/sotobetawibangebet',
-  cuisine: 'Indonesian',
-
-  rating: {
-    stars: undefined,
-    count: undefined
-  },
-  
-  operatingHours: {
-    openingHours: '07.00',
-    closingHours: '23.00'
-  },
-
-  menus: [{
-    name: 'Soto/Sop Oseng Daging',
-    image: './images/food/1.png',
-    price: 38_000
-  }, {
-    name: 'Soto/Sop Oseng Ayam',
-    image: './images/food/2.png',
-    price: 35_000
-  }],
-
-  reviews: [{
-    username: 'hartashu',
-    stars: 5,
-    comment: 'Sangat enak sekali'
-  }, {
-    username: 'nexcarlos',
-    stars: 2,
-    comment: 'Tidak enak'
-  }]
-}, {
-  restaurantId: 2,
-  name: 'restoran bsd',
-  address: 'Ruko Madison Grande Blok L 58, Gading, Kec. Serpong, Kabupaten Tangerang, Banten 15334',
-  location: 'BSD',
-  website: 'https://www.instagram.com/sotobetawibangebet',
-  cuisine: 'Japanese',
-
-  rating: {
-    stars: undefined,
-    count: undefined
-  },
-  
-  operatingHours: {
-    openingHours: '07.00',
-    closingHours: '23.00'
-  },
-
-  menus: [{
-    name: 'air comberan',
-    image: './images/food/1.png',
-    price: 28_000
-  }, {
-    name: 'limbah',
-    image: './images/food/2.png',
-    price: 25_000
-  }],
-
-  reviews: [{
-    username: 'mgdalenaf',
-    stars: 1,
-    comment: 'Sangat enak sekali'
-  }, {
-    username: 'tanboy',
-    stars: 1,
-    comment: 'Tidak enak'
-  }]
-}, {
-  restaurantId: 3,
-  name: 'restoran alsut',
-  address: 'Ruko Madison Grande Blok L 58, Gading, Kec. Serpong, Kabupaten Tangerang, Banten 15334',
-  location: 'Alam Sutera',
-  website: 'https://www.instagram.com/sotobetawibangebet',
-  cuisine: 'Korean',
-
-  rating: {
-    stars: undefined,
-    count: undefined
-  },
-  
-  operatingHours: {
-    openingHours: '07.00',
-    closingHours: '23.00'
-  },
-
-  menus: [{
-    name: 'nasi kering',
-    image: './images/food/1.png',
-    price: 38_000
-  }, {
-    name: 'nasi aking',
-    image: './images/food/2.png',
-    price: 35_000
-  }],
-
-  reviews: [{
-    username: 'ombotak',
-    stars: 5,
-    comment: 'Sangat enak sekali'
-  }, {
-    username: 'hartashu',
-    stars: 5,
-    comment: 'Tidak enak'
-  }]
-}];
-*/
-
-export const restaurants = JSON.parse(localStorage.getItem('restaurants')) || defaultRestaurants;
+const restaurants = JSON.parse(localStorage.getItem('restaurants')) || defaultRestaurants;
 
 function addRestaurant([name, address, location, website, cuisine, openingHours, closingHours, menus]) {
 
@@ -676,10 +733,12 @@ function addRestaurant([name, address, location, website, cuisine, openingHours,
   restaurants.push(restaurant);
 }
 
+export function getDbRestaurants() {
+  return restaurants;
+}
+
 function updateAllRating(restaurants) {
-  restaurants.forEach(restaurant => {
-    restaurant.rating = calculateRating(restaurant.reviews);
-  });
+  restaurants.forEach(restaurant => restaurant.rating = calculateRating(restaurant.reviews));
 }
 
 export function updateCurrentRestaurantRating(restaurant) {
@@ -698,9 +757,7 @@ function calculateRating(reviews) {
   });
 
   stars = totalStars / count;
-  stars = Math.round(stars * 2) / 2;
-
-  // if (!stars) return null;
+  stars = Math.round(stars * 2) / 2; // 4.66666 * 2 -> Math.round(9.33332) -> 9 / 2 -> 4.5
 
   return {
     stars,
@@ -837,44 +894,4 @@ export function getFilteredMenusByCuisine(cuisine) {
   return menus;
 }
 
-const restaurant1 = [
-  'Gerobak Betawi Gading Serpong',
-  'Jl. Gading Serpong Boulevard No.10-11, Pakulonan Bar., Kec. Klp. Dua, Kabupaten Tangerang, Banten 15810',
-  'Gading Serpong',
-  'http://www.gerobakbetawi.com/',
-  'Indonesian',
-  '07.30',
-  '10.00',
-  [{
-    name: 'Ketoprak',
-    image: './images/food/3.png',
-    price: 28_636
-  }, {
-    name: 'Tahu Telor',
-    image: './images/food/4.png',
-    price: 25_000
-  }]
-];
-
-const restaurant2 = [
-  'AyamSobbb Speciality',
-  'Ruko Madison Grande Blok L/25, Gading, Kec. Serpong, Banten',
-  'Gading Serpong',
-  '',
-  'Indonesian',
-  '10.30',
-  '20.30',
-  [{
-    name: 'Ayam Sobbb',
-    image: './images/food/5.png',
-    price: 26_000
-  }, {
-    name: 'Ayam Sobbb Kampung',
-    image: './images/food/6.png',
-    price: 38_000
-  }]
-];
-
-addRestaurant(restaurant1);
-// addRestaurant(restaurant2);
 updateAllRating(restaurants);

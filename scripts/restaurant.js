@@ -1,12 +1,12 @@
-import { restaurants, updateCurrentRestaurantRating, saveRestaurantsToLocalStorage } from "./data.js";
-import { currentAccount, removeCurrentAccount } from "./account.js";
+import { getDbRestaurants, updateCurrentRestaurantRating, saveRestaurantsToLocalStorage } from "./data.js";
+import { getCurrentAccount, removeCurrentAccount } from "./account.js";
 
-if (!currentAccount) window.location.href = '../index.html';
+if (!getCurrentAccount()) window.location.href = '../index.html';
 
 function getRestaurant(restaurantId) {
   let restaurant;
 
-  for (const element of restaurants) {
+  for (const element of getDbRestaurants()) {
     if (restaurantId === element.restaurantId) restaurant = element;
   }
 
@@ -56,7 +56,7 @@ window.addEventListener('load', () => {
   // const url = document.location.search;
   // const query = new URLSearchParams(url);
   // restaurantId = Number(query.get('restaurantId'));
-  restaurantId = 1;
+  restaurantId = 2;
   renderRestaurantPage();
 })
 
@@ -91,7 +91,6 @@ function renderRestaurantPage() {
   /*
     Restaurant menus
   */
-
  
   const restaurantNameEl = document.querySelector('.restaurant-name');
   restaurantNameEl.innerHTML = restaurant.name + ` <span class='menus'>Menus</span>`;
@@ -128,22 +127,28 @@ function renderRestaurantPage() {
   */
   
   const reviews = restaurant.reviews;
-  
+
   const customerReviewsEl = document.querySelector('.customer-reviews');
-  
-  let reviewsHtml = '';
-  
-  for (const review of reviews) {
-    reviewsHtml += `
-      <div class="customer-review">
-        <p>${review.username}</p>
-        <div>${getCustomerRating(review)}</div>
-        <p>${review.comment}</p>
-      </div>
-    `;
+
+  if (reviews) {
+    
+    let reviewsHtml = '';
+    
+    for (const review of reviews) {
+      reviewsHtml += `
+        <div class="customer-review">
+          <p>${review.username}</p>
+          <div>${getCustomerRating(review)}</div>
+          <p>${review.comment}</p>
+        </div>
+      `;
+    }
+    
+    customerReviewsEl.innerHTML = reviewsHtml;
+  } else {
+    customerReviewsEl.innerHTML = 'No reviews yet';
   }
   
-  customerReviewsEl.innerHTML = reviewsHtml;
   
   /*
     Give review - Fix
@@ -151,39 +156,50 @@ function renderRestaurantPage() {
   
   const giveReviewFormEl = document.querySelector('#give-review-form');
   const giveReviewUsernameEl = document.querySelector('.give-review-username');
-  const giveRatingEl = document.querySelector('#give-rating');
+  const radioButtonsEl = document.querySelectorAll('input[name="rating"]');
   const giveReviewTextarea = document.querySelector('#give-review-textarea');
   
-  giveReviewUsernameEl.innerText = currentAccount;
+  giveReviewUsernameEl.innerText = getCurrentAccount();
   
   giveReviewFormEl.addEventListener('submit', (event) => {
     event.preventDefault();
-  
-    let isNewReviewer = true;
-  
-    for (const review of reviews) {
-      if (review.username === currentAccount) {
-        review.stars = Number(giveRatingEl.value);
-        review.comment = giveReviewTextarea.value;
-        isNewReviewer = false;
+
+    let stars;
+    for (const radioButton of radioButtonsEl) {
+      if (radioButton.checked) {
+        stars = Number(radioButton.value);
         break;
-      }
+      } 
     }
   
+    let isNewReviewer = true;
+
+    if (reviews) {
+      for (const review of reviews) {
+        if (review.username === getCurrentAccount()) {
+          review.stars = stars;
+          review.comment = giveReviewTextarea.value;
+          isNewReviewer = false;
+          break;
+        }
+      }
+    }
+
     if (isNewReviewer) {
       let newReview = {
-        username: currentAccount,
-        stars: Number(giveRatingEl.value),
+        username: getCurrentAccount(),
+        stars: stars,
         comment: giveReviewTextarea.value
       };
     
+      if (!restaurant.hasOwnProperty('reviews')) restaurant.reviews = []; 
+
       restaurant.reviews.push(newReview);
     }
 
     updateCurrentRestaurantRating(restaurant);
     saveRestaurantsToLocalStorage();
     renderRestaurantPage();
-    
   });
   
   /*
@@ -198,5 +214,3 @@ function renderRestaurantPage() {
   });
 
 }
-
-// renderRestaurantPage();
