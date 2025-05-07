@@ -107,7 +107,12 @@ h6 {
 .main-top {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.main-top ul li {
+  display: inline;
+  cursor: pointer;
 }
 
 .food-cards {
@@ -136,4 +141,8 @@ h6 {
   /* overflow: hidden; */
 
   border: 1px solid black;
+}
+
+.hidden {
+  display: none;
 }

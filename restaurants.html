@@ -86,18 +86,32 @@
 
     <main class="main">
       <div class="main-top">
-        <label for="sort-by">Sort By: </label>
-        <select name="sort-by" id="sort-by">
-          <option value="sortByRating">Highest Rating</option>
-          <option value="sortByHigherPrice">Higher Price</option>
-          <option value="sortByLowerPrice">Lower Price</option>
-          <option value="sortByAscending">Ascending</option>
-          <option value="sortByDescending">Descending</option>
-        </select>
+        <ul>
+          <li class="tab-foods">Foods</li>
+          <li class="tab-shops">Shops</li>
+        </ul>
+
+        <div>
+          <label for="sort-by">Sort By: </label>
+          <select name="sort-by" id="sort-by">
+            <option value="sortByRating">Highest Rating</option>
+            <option value="sortByHigherPrice">Higher Price</option>
+            <option value="sortByLowerPrice">Lower Price</option>
+            <option value="sortByAscending">Ascending</option>
+            <option value="sortByDescending">Descending</option>
+          </select>
+        </div>
       </div>
 
-      <div class="food-cards">
+      <div class="main-content">
 
+        <div class="food-cards">
+
+        </div>
+
+        <div class="shop-cards hidden">
+
+        </div>
       </div>
     </main>
   </div>
