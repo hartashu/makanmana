@@ -12,17 +12,17 @@
 import {
   getDbRestaurants,
   getRestaurantByRestaurantId,
+  getRestaurantRating,
   getAllMenus,
   getAllMenuByHighestRating,
-  getRestaurantRating,
-  getFilteredMenusByLocation,
-  getFilteredMenusByRating,
-  getFilteredMenusByPrice,
-  getFilteredMenusByAscendingName,
-  getFilteredMenusByDescendingName,
-  getFilteredMenusByCuisine,
+  getAllMenusByAscendingName,
+  getAllMenusByDescendingName,
   getAllMenuByLowestPrice,
-  getAllMenuByHighestPrice
+  getAllMenuByHighestPrice,
+  getFilteredMenusByLocation,
+  getFilteredMenusByPrice,
+  getFilteredMenusByCuisine,
+  getFilteredMenusByRating
 } from "./data.js";
 import { getCurrentAccount, removeCurrentAccount } from "./account.js";
 
@@ -38,24 +38,6 @@ logoutButtonEl.addEventListener('click', () => {
   removeCurrentAccount();
   window.location.href = '../index.html';
 });
-
-/*
-  Filter
-*/
-
-// console.log(getFilteredMenusByLocation('Gading Serpong'));
-// console.log(getFilteredMenusByLocation('BSD'));
-// console.log(getFilteredMenusByLocation('Alam Sutera'));
-
-// console.log(getFilteredMenusByRating(1));
-// console.log(restaurants);
-
-// console.log(getFilteredMenusByPrice(20_000, 30_000));
-
-// console.log(getFilteredMenusByAscendingName());
-// console.log(getFilteredMenusByDescendingName());
-
-// console.log(getFilteredMenusByCuisine('Korean'));
 
 /*
   Show foods
@@ -100,11 +82,8 @@ function renderFoodCards(menus) {
 
 renderFoodCards(menus);
 
-
-// ${getRestaurantRating(restaurant)}
-
 /*
-  Sort by: rating
+  Sort by:
 */
 
 const sortByEl = document.querySelector('#sort-by');
@@ -128,12 +107,68 @@ sortByEl.addEventListener('change', () => {
       break;
 
     case 'sortByAscending':
+      menus = getAllMenusByAscendingName(restaurants);
       break;
 
     case 'sortByDescending':
+      menus = getAllMenusByDescendingName(restaurants);
       break;
   }
 
+  renderFoodCards(menus);
+});
+
+/*
+  Filter
+*/
+
+// Filter by location
+const filterLocationSelectEl = document.querySelector('#filter-location');
+filterLocationSelectEl.addEventListener('change', () => {
+  const location = filterLocationSelectEl.value;
+  const menus = getFilteredMenusByLocation(location, restaurants);
+
+  renderFoodCards(menus);
+});
+
+// Filter by price
+const filterPriceMinInputEl = document.querySelector('#filter-price-min');
+const filterPriceMaxInputEl = document.querySelector('#filter-price-max');
+
+filterPriceMinInputEl.addEventListener('change', () => { 
+  const minPrice = Number(filterPriceMinInputEl.value);
+  const maxPrice = Number(filterPriceMaxInputEl.value);
+
+  const menus = getFilteredMenusByPrice(minPrice, maxPrice);
+  if (minPrice && maxPrice) {
+    renderFoodCards(menus);
+  }
+});
+
+filterPriceMaxInputEl.addEventListener('change', () => {
+  const minPrice = Number(filterPriceMinInputEl.value);
+  const maxPrice = Number(filterPriceMaxInputEl.value);
+
+  const menus = getFilteredMenusByPrice(minPrice, maxPrice);
+  if (minPrice && maxPrice) {
+    renderFoodCards(menus);
+  }
+});
+
+// Filter by cuisine
+const filterCuisineInputEl = document.querySelector('#filter-cuisine');
+filterCuisineInputEl.addEventListener('change', () => {
+  const cuisine = filterCuisineInputEl.value;
+  const menus = getFilteredMenusByCuisine(cuisine, restaurants);
+
+  renderFoodCards(menus);
+});
+
+// Filter by rating
+const filterRatingSelectEl = document.querySelector('#filter-rating');
+filterRatingSelectEl.addEventListener('change', () => {
+  const rating = Number(filterRatingSelectEl.value);
+  const menus = getFilteredMenusByRating(rating, restaurants);
 
   renderFoodCards(menus);
 });

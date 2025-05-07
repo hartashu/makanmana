@@ -35,9 +35,9 @@
           <div>
             <label>Price range:</label>
             <br>
-            <input type="text" name="filter-price-max" id="filter-price-min">
+            <input type="number" name="filter-price-min" id="filter-price-min" min="0" max="10_000_000" step="2000">
             <span>-</span>
-            <input type="text" name="filter-price-max" id="filter-price-max">
+            <input type="number" name="filter-price-max" id="filter-price-max" min="0" max="10_000_000" step="2000">
           </div>
 
           <br><br>
@@ -46,8 +46,8 @@
             <label for="filter-cuisine">Cuisine:</label>
             <select name="filter-cuisine" id="filter-cuisine">
               <option value="Indonesian">Indonesian</option>
-              <option value="Chinese">Indonesian</option>
-              <option value="Western">Indonesian</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Western">Western</option>
               <option value="Japanese">Japanese</option>
               <option value="Korean">Korean</option>
               <option value="Padang">Padang</option>
@@ -62,12 +62,18 @@
 
           <div>
             <label for="filter-rating">Rating minimal:</label>
-            <input type="text" name="filter-rating" id="filter-rating">
+            <select name="filter-rating" id="filter-rating">
+              <option value="5">5</option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
           </div>
 
           <br><br>
 
-          <button type="submit">Filter</button>
+          <!-- <button type="submit">Filter</button> -->
         </form>
       </div>
     </aside>
