@@ -37,14 +37,38 @@
     </div>
 
     <div class="give-review">
-      <form id="give-review-form">
-        <p>Username: <span class="give-review-username"></span></p>
+      <p>Username: <span class="give-review-username"></span></p>
+      <p>Rating:</p>
 
+      <form id="give-review-form">
         <div class="give-rating-container">
-          <label for="give-rating">Rating:</label>
-          <input required type="range" min="1" max="5" step="0.5" value="5" id="give-rating"
+          <!-- <input required type="range" min="1" max="5" step="0.5" value="5" id="give-rating"
             oninput="this.nextElementSibling.value = this.value">
-          <output>5</output>
+          <output>5</output> -->
+          <div>
+            <input type="radio" id="rate-one" name="rating" value="1">
+            <label for="rate-one">1</label>
+          </div>
+
+          <div>
+            <input type="radio" id="rate-two" name="rating" value="2">
+            <label for="rate-two">2</label>
+          </div>
+
+          <div>
+            <input type="radio" id="rate-three" name="rating" value="3">
+            <label for="rate-three">3</label>
+          </div>
+
+          <div>
+            <input type="radio" id="rate-four" name="rating" value="4">
+            <label for="rate-four">4</label>
+          </div>
+
+          <div>
+            <input type="radio" id="rate-five" name="rating" value="5" checked>
+            <label for="rate-five">5</label>
+          </div>
         </div>
 
         <div>

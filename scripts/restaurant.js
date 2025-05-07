@@ -53,10 +53,9 @@ function getCustomerRating(review) {
 let restaurantId;
 
 window.addEventListener('load', () => {
-  // const url = document.location.search;
-  // const query = new URLSearchParams(url);
-  // restaurantId = Number(query.get('restaurantId'));
-  restaurantId = 2;
+  const url = document.location.search;
+  const query = new URLSearchParams(url);
+  restaurantId = Number(query.get('restaurantId'));
   renderRestaurantPage();
 })
 

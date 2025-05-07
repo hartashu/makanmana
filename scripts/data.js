@@ -737,6 +737,16 @@ export function getDbRestaurants() {
   return restaurants;
 }
 
+export function getRestaurantByRestaurantId(restaurantId, restaurants) {
+  let restaurant;
+
+  for (const element of restaurants) {
+    if (restaurantId === element.restaurantId) restaurant = element;
+  }
+
+  return restaurant;
+}
+
 function updateAllRating(restaurants) {
   restaurants.forEach(restaurant => restaurant.rating = calculateRating(restaurant.reviews));
 }
@@ -779,7 +789,19 @@ function makeNewMenuAndAssignId(restaurant, menu) {
   return newMenu;
 }
 
-export function getFilteredMenusByLocation(location) {
+export function getAllMenus(restaurants) {
+  const menus = [];
+
+  for (const restaurant of restaurants) {
+    for (const menu of restaurant.menus) {
+      menus.push(makeNewMenuAndAssignId(restaurant, menu));
+    }
+  }
+
+  return menus;
+}
+
+export function getFilteredMenusByLocation(location, restaurants) {
   const filteredByLocation = restaurants.filter(restaurant => restaurant.location === location);
   const menus = [];
 
