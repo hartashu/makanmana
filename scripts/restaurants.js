@@ -13,6 +13,8 @@ import {
   getDbRestaurants,
   getRestaurantByRestaurantId,
   getAllMenus,
+  getAllMenuByHighestRating,
+  getRestaurantRating,
   getFilteredMenusByLocation,
   getFilteredMenusByRating,
   getFilteredMenusByPrice,
@@ -58,7 +60,6 @@ logoutButtonEl.addEventListener('click', () => {
 */
 
 const restaurants = getDbRestaurants();
-// const menus = getFilteredMenusByLocation('Gading Serpong', restaurants);
 const menus = getAllMenus(restaurants);
 
 function renderFoodCards(menus) {
@@ -81,7 +82,7 @@ function renderFoodCards(menus) {
             <div class="card-detail">
               <div>
                 <p>Restaurant: ${restaurant.name}</p>
-
+                ${getRestaurantRating(restaurant)}
               </div>
               <p class="card-location">Location: ${restaurant.location}</p>
             </div>
@@ -104,3 +105,31 @@ renderFoodCards(menus);
   Sort by: rating
 */
 
+const sortByEl = document.querySelector('#sort-by');
+sortByEl.addEventListener('change', () => {
+
+  let menus;
+
+  const selectValue = sortByEl.value;
+
+  switch (selectValue) {
+    case 'sortByRating':
+      menus = getAllMenuByHighestRating(restaurants);
+      break;
+    
+    case 'sortByHigherPrice':
+      break;
+
+    case 'sortByLowerPrice':
+      break;
+
+    case 'sortByAscending':
+      break;
+
+    case 'sortByDescending':
+      break;
+  }
+
+
+  renderFoodCards(menus);
+});
