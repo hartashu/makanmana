@@ -10,7 +10,9 @@
 */
 
 import {
-  restaurants,
+  getDbRestaurants,
+  getRestaurantByRestaurantId,
+  getAllMenus,
   getFilteredMenusByLocation,
   getFilteredMenusByRating,
   getFilteredMenusByPrice,
@@ -18,9 +20,9 @@ import {
   getFilteredMenusByDescendingName,
   getFilteredMenusByCuisine
 } from "./data.js";
-import { currentAccount, removeCurrentAccount } from "./account.js";
+import { getCurrentAccount, removeCurrentAccount } from "./account.js";
 
-if (!currentAccount) window.location.href = '../index.html';
+if (!getCurrentAccount) window.location.href = '../index.html';
 
 /*
   Logout button
@@ -51,25 +53,54 @@ logoutButtonEl.addEventListener('click', () => {
 
 // console.log(getFilteredMenusByCuisine('Korean'));
 
-let cardsHtml = '';
+/*
+  Show foods
+*/
 
-for (const menu of menus) {
-cardsHtml += `
-  <div class="card">
-    <img src="${menu.image}" alt="" class="card-image">
-    <div class="card-text">
-      <h3>${menu.name}</h3>
-      <p>Price: Rp. ${menu.price}</p>
+const restaurants = getDbRestaurants();
+// const menus = getFilteredMenusByLocation('Gading Serpong', restaurants);
+const menus = getAllMenus(restaurants);
 
-      <div class="card-detail">
-        <div>
-          <p>Restaurant: ${restaurant.name}</p>
-          ${getRestaurantRating(restaurant)}
+function renderFoodCards(menus) {
+  const foodCardsEl = document.querySelector('.food-cards');
+
+  let cardsHtml = '';
+
+  for (const menu of menus) {
+
+    const restaurant = getRestaurantByRestaurantId(menu.restaurantId, restaurants);
+
+    cardsHtml += `
+      <a href='../restaurant.html?restaurantId=${menu.restaurantId}'>
+        <div class="card">
+          <img src="${menu.image}" alt="" class="card-image">
+          <div class="card-text">
+            <h3>${menu.name}</h3>
+            <p>Price: Rp. ${menu.price}</p>
+
+            <div class="card-detail">
+              <div>
+                <p>Restaurant: ${restaurant.name}</p>
+
+              </div>
+              <p class="card-location">Location: ${restaurant.location}</p>
+            </div>
+
+          </div>
         </div>
-        <p class="card-location">Location: ${restaurant.location}</p>
-      </div>
+      </a>
+    `;
+  }
 
-    </div>
-  </div>
-`;
+  foodCardsEl.innerHTML = cardsHtml;
 }
+
+renderFoodCards(menus);
+
+
+// ${getRestaurantRating(restaurant)}
+
+/*
+  Sort by: rating
+*/
+

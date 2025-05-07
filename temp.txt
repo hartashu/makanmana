@@ -1,0 +1,158 @@
+
+/*
+const defaultRestaurants = [{
+  restaurantId: 1,
+  name: 'Soto Betawi Bang Ebet',
+  address: 'Ruko Madison Grande Blok L 58, Gading, Kec. Serpong, Kabupaten Tangerang, Banten 15334',
+  location: 'Gading Serpong',
+  website: 'https://www.instagram.com/sotobetawibangebet',
+  cuisine: 'Indonesian',
+
+  rating: {
+    stars: undefined,
+    count: undefined
+  },
+  
+  operatingHours: {
+    openingHours: '07.00',
+    closingHours: '23.00'
+  },
+
+  menus: [{
+    name: 'Soto/Sop Oseng Daging',
+    image: './images/food/1.png',
+    price: 38_000
+  }, {
+    name: 'Soto/Sop Oseng Ayam',
+    image: './images/food/2.png',
+    price: 35_000
+  }],
+
+  reviews: [{
+    username: 'hartashu',
+    stars: 5,
+    comment: 'Sangat enak sekali'
+  }, {
+    username: 'nexcarlos',
+    stars: 2,
+    comment: 'Tidak enak'
+  }]
+}, {
+  restaurantId: 2,
+  name: 'restoran bsd',
+  address: 'Ruko Madison Grande Blok L 58, Gading, Kec. Serpong, Kabupaten Tangerang, Banten 15334',
+  location: 'BSD',
+  website: 'https://www.instagram.com/sotobetawibangebet',
+  cuisine: 'Japanese',
+
+  rating: {
+    stars: undefined,
+    count: undefined
+  },
+  
+  operatingHours: {
+    openingHours: '07.00',
+    closingHours: '23.00'
+  },
+
+  menus: [{
+    name: 'air comberan',
+    image: './images/food/1.png',
+    price: 28_000
+  }, {
+    name: 'limbah',
+    image: './images/food/2.png',
+    price: 25_000
+  }],
+
+  reviews: [{
+    username: 'mgdalenaf',
+    stars: 1,
+    comment: 'Sangat enak sekali'
+  }, {
+    username: 'tanboy',
+    stars: 1,
+    comment: 'Tidak enak'
+  }]
+}, {
+  restaurantId: 3,
+  name: 'restoran alsut',
+  address: 'Ruko Madison Grande Blok L 58, Gading, Kec. Serpong, Kabupaten Tangerang, Banten 15334',
+  location: 'Alam Sutera',
+  website: 'https://www.instagram.com/sotobetawibangebet',
+  cuisine: 'Korean',
+
+  rating: {
+    stars: undefined,
+    count: undefined
+  },
+  
+  operatingHours: {
+    openingHours: '07.00',
+    closingHours: '23.00'
+  },
+
+  menus: [{
+    name: 'nasi kering',
+    image: './images/food/1.png',
+    price: 38_000
+  }, {
+    name: 'nasi aking',
+    image: './images/food/2.png',
+    price: 35_000
+  }],
+
+  reviews: [{
+    username: 'ombotak',
+    stars: 5,
+    comment: 'Sangat enak sekali'
+  }, {
+    username: 'hartashu',
+    stars: 5,
+    comment: 'Tidak enak'
+  }]
+}];
+*/
+
+
+
+
+
+
+const restaurant1 = [
+  'Gerobak Betawi Gading Serpong',
+  'Jl. Gading Serpong Boulevard No.10-11, Pakulonan Bar., Kec. Klp. Dua, Kabupaten Tangerang, Banten 15810',
+  'Gading Serpong',
+  'http://www.gerobakbetawi.com/',
+  'Indonesian',
+  '07.30',
+  '10.00',
+  [{
+    name: 'Ketoprak',
+    image: './images/food/3.png',
+    price: 28_636
+  }, {
+    name: 'Tahu Telor',
+    image: './images/food/4.png',
+    price: 25_000
+  }]
+];
+
+const restaurant2 = [
+  'AyamSobbb Speciality',
+  'Ruko Madison Grande Blok L/25, Gading, Kec. Serpong, Banten',
+  'Gading Serpong',
+  '',
+  'Indonesian',
+  '10.30',
+  '20.30',
+  [{
+    name: 'Ayam Sobbb',
+    image: './images/food/5.png',
+    price: 26_000
+  }, {
+    name: 'Ayam Sobbb Kampung',
+    image: './images/food/6.png',
+    price: 38_000
+  }]
+];

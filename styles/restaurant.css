@@ -222,6 +222,12 @@ body {
   padding: 2rem;
 }
 
+.give-rating-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2ch;
+}
+
 #give-review-textarea {
   display: block;
   width: 100%;
