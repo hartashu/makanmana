@@ -181,28 +181,37 @@ const tabShopsEl = document.querySelector('.tab-shops');
 
 const foodCardsEl = document.querySelector('.food-cards');
 const shopCardsEl = document.querySelector('.shop-cards');
+const filterEl = document.querySelector('.filter');
 
 tabShopsEl.addEventListener('click', () => {
   foodCardsEl.classList.add('hidden');
   shopCardsEl.classList.remove('hidden');
+
+  filterEl.style.pointerEvents = 'none';
 });
 
 tabFoodsEl.addEventListener('click', () => {
   foodCardsEl.classList.remove('hidden');
   shopCardsEl.classList.add('hidden');
+
+  filterEl.style.pointerEvents = 'auto';
 });
 
 // Get shops
 function renderShopCards(restaurants) {
+
+
   let shopsHtml = '';
 
-  const restaurantNames = getAllRestaurants(restaurants);
+  const newRestaurants = getAllRestaurants(restaurants);
   
-  console.log(restaurantNames);
-  for (const restaurantName of restaurantNames) {
+  for (const restaurant of newRestaurants) {
     shopsHtml += `
       <div>
-        <p>${restaurantName}</p>
+        <a href="../restaurant.html?restaurantId=${restaurant.restaurantId}">
+          <p>${restaurant.name}</p>
+          <div>${getRestaurantRating(restaurant)}</div>
+        </a>
       </div>
     `;
   }
