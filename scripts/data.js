@@ -912,6 +912,58 @@ export function getAllMenuByLowestPrice(restaurants) {
   return menus;
 }
 
+export function getAllMenusByAscendingName(restaurants) {
+  const menus = [];
+
+  for (const restaurant of restaurants) {
+    for (const menu of restaurant.menus) {
+      menus.push(makeNewMenuAndAssignId(restaurant, menu));
+    }
+  }
+
+  menus.sort((a, b) => {
+    const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+    const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return -1;
+    }
+    if (nameA > nameB) {
+      return 1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
+
+  return menus;
+}
+
+export function getAllMenusByDescendingName(restaurants) {
+  const menus = [];
+
+  for (const restaurant of restaurants) {
+    for (const menu of restaurant.menus) {
+      menus.push(makeNewMenuAndAssignId(restaurant, menu));
+    }
+  }
+
+  menus.sort((a, b) => {
+    const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+    const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+    if (nameA < nameB) {
+      return 1;
+    }
+    if (nameA > nameB) {
+      return -1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
+
+  return menus;
+}
+
 export function getFilteredMenusByLocation(location, restaurants) {
   const filteredByLocation = restaurants.filter(restaurant => restaurant.location === location);
   const menus = [];
@@ -930,17 +982,12 @@ export function getFilteredMenusByLocation(location, restaurants) {
   return menus;
 }
 
-export function getFilteredMenusByRating(rating) {
-  const filteredByRating = restaurants.filter(restaurant => restaurant.rating.stars >= rating);
+export function getFilteredMenusByCuisine(cuisine, restaurants) {
+  const filteredByRating = restaurants.filter(restaurant => restaurant.cuisine === cuisine);
   const menus = [];
 
   for (const restaurant of filteredByRating) {
     for (const menu of restaurant.menus) {
-      // let newMenu = {};
-      // Object.assign(newMenu, menu);
-      // newMenu.restaurantId = restaurant.restaurantId;
-      // menus.push(newMenu);
-
       menus.push(makeNewMenuAndAssignId(restaurant, menu));
     }
   }
@@ -962,70 +1009,25 @@ export function getFilteredMenusByPrice(min = -Infinity, max = Infinity) {
   return menus;
 }
 
-export function getFilteredMenusByAscendingName() {
-  const menus = [];
-
-  for (const restaurant of restaurants) {
-    for (const menu of restaurant.menus) {
-      menus.push(makeNewMenuAndAssignId(restaurant, menu));
-    }
-  }
-
-  menus.sort((a, b) => {
-    const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-    const nameB = b.name.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-  
-    // names must be equal
-    return 0;
-  });
-
-  return menus;
-}
-
-export function getFilteredMenusByDescendingName() {
-  const menus = [];
-
-  for (const restaurant of restaurants) {
-    for (const menu of restaurant.menus) {
-      menus.push(makeNewMenuAndAssignId(restaurant, menu));
-    }
-  }
-
-  menus.sort((a, b) => {
-    const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-    const nameB = b.name.toUpperCase(); // ignore upper and lowercase
-    if (nameA < nameB) {
-      return 1;
-    }
-    if (nameA > nameB) {
-      return -1;
-    }
-  
-    // names must be equal
-    return 0;
-  });
-
-  return menus;
-}
-
-export function getFilteredMenusByCuisine(cuisine) {
-  const filteredByRating = restaurants.filter(restaurant => restaurant.cuisine === cuisine);
+export function getFilteredMenusByRating(rating, restaurants) {
+  const filteredByRating = restaurants.filter(restaurant => restaurant.rating.stars >= rating);
   const menus = [];
 
   for (const restaurant of filteredByRating) {
     for (const menu of restaurant.menus) {
+      // let newMenu = {};
+      // Object.assign(newMenu, menu);
+      // newMenu.restaurantId = restaurant.restaurantId;
+      // menus.push(newMenu);
+
       menus.push(makeNewMenuAndAssignId(restaurant, menu));
     }
   }
 
   return menus;
 }
+
+
 
 function generateRandomReviews(restaurants) {
   for (let i = 0; i < restaurants.length; i++) {
@@ -1050,6 +1052,6 @@ function generateRandomReviews(restaurants) {
   console.log(restaurants);
 }
 
-generateRandomReviews(restaurants);
+// generateRandomReviews(restaurants);
 
 updateAllRating(restaurants);
