@@ -20,7 +20,9 @@ import {
   getFilteredMenusByPrice,
   getFilteredMenusByAscendingName,
   getFilteredMenusByDescendingName,
-  getFilteredMenusByCuisine
+  getFilteredMenusByCuisine,
+  getAllMenuByLowestPrice,
+  getAllMenuByHighestPrice
 } from "./data.js";
 import { getCurrentAccount, removeCurrentAccount } from "./account.js";
 
@@ -118,9 +120,11 @@ sortByEl.addEventListener('change', () => {
       break;
     
     case 'sortByHigherPrice':
+      menus = getAllMenuByHighestPrice(restaurants);
       break;
 
     case 'sortByLowerPrice':
+      menus = getAllMenuByLowestPrice(restaurants);
       break;
 
     case 'sortByAscending':

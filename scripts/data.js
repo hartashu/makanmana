@@ -853,11 +853,38 @@ export function getAllMenuByHighestRating(restaurants) {
     }
   }
 
-  
   return menus;
 }
 
 export function getAllMenuByHighestPrice(restaurants) {
+  const menus = [];
+
+  const tempRestaurants = [...restaurants];
+
+  for (const restaurant of tempRestaurants) {
+    for (const menu of restaurant.menus) {
+      menus.push(makeNewMenuAndAssignId(restaurant, menu));
+    }
+  }
+
+  menus.sort((a, b) => {
+    const priceA = a.price;
+    const priceB = b.price;
+    if (priceA < priceB) {
+      return 1;
+    }
+    if (priceA > priceB) {
+      return -1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
+
+  return menus;
+}
+
+export function getAllMenuByLowestPrice(restaurants) {
   const menus = [];
 
   const tempRestaurants = [...restaurants];
