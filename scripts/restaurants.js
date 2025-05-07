@@ -22,7 +22,8 @@ import {
   getFilteredMenusByLocation,
   getFilteredMenusByPrice,
   getFilteredMenusByCuisine,
-  getFilteredMenusByRating
+  getFilteredMenusByRating,
+  getAllRestaurants
 } from "./data.js";
 import { getCurrentAccount, removeCurrentAccount } from "./account.js";
 
@@ -172,3 +173,41 @@ filterRatingSelectEl.addEventListener('change', () => {
 
   renderFoodCards(menus);
 });
+
+// Tabs foods & shops
+const tabFoodsEl = document.querySelector('.tab-foods');
+const tabShopsEl = document.querySelector('.tab-shops');
+
+
+const foodCardsEl = document.querySelector('.food-cards');
+const shopCardsEl = document.querySelector('.shop-cards');
+
+tabShopsEl.addEventListener('click', () => {
+  foodCardsEl.classList.add('hidden');
+  shopCardsEl.classList.remove('hidden');
+});
+
+tabFoodsEl.addEventListener('click', () => {
+  foodCardsEl.classList.remove('hidden');
+  shopCardsEl.classList.add('hidden');
+});
+
+// Get shops
+function renderShopCards(restaurants) {
+  let shopsHtml = '';
+
+  const restaurantNames = getAllRestaurants(restaurants);
+  
+  console.log(restaurantNames);
+  for (const restaurantName of restaurantNames) {
+    shopsHtml += `
+      <div>
+        <p>${restaurantName}</p>
+      </div>
+    `;
+  }
+  
+  shopCardsEl.innerHTML = shopsHtml;
+}
+
+renderShopCards(restaurants);

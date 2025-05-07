@@ -1027,7 +1027,15 @@ export function getFilteredMenusByRating(rating, restaurants) {
   return menus;
 }
 
+export function getAllRestaurants(restaurants) {
+  const newRestaurants = [...restaurants];
 
+  newRestaurants.map(restaurant => restaurant.name);
+
+  console.log(newRestaurants, '<<<<<<');
+
+  return newRestaurants;
+}
 
 function generateRandomReviews(restaurants) {
   for (let i = 0; i < restaurants.length; i++) {
