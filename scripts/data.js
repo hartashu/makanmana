@@ -1028,11 +1028,20 @@ export function getFilteredMenusByRating(rating, restaurants) {
 }
 
 export function getAllRestaurants(restaurants) {
-  const newRestaurants = [...restaurants];
+  const newRestaurants = [];
 
-  newRestaurants.map(restaurant => restaurant.name);
+  for (const restaurant of restaurants) {
+    const { restaurantId, name, rating, location } = restaurant;
 
-  console.log(newRestaurants, '<<<<<<');
+    const newObject = {
+      restaurantId,
+      name,
+      rating,
+      location
+    };
+
+    newRestaurants.push(newObject);
+  }
 
   return newRestaurants;
 }
