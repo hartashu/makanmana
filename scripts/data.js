@@ -747,6 +747,24 @@ export function getRestaurantByRestaurantId(restaurantId, restaurants) {
   return restaurant;
 }
 
+export function getRestaurantRatingImage(restaurant) {
+  let stars = restaurant.rating.stars >= 1 ? restaurant.rating.stars * 10 : String(restaurant.rating.stars * 10).padStart(2, '0');
+
+  return `./images/ratings/rating-${stars}.png`;
+}
+
+export function getRestaurantRating(restaurant) {
+  if (!restaurant.rating /*|| isNaN(restaurant.rating)*/) return '<p class="not-rated">This restaurant has not been rated yet</p>';
+
+  return `
+    <div class="restaurant-rating">
+      <p>${restaurant.rating.stars.toFixed(1)}</p>
+      <img src="${getRestaurantRatingImage(restaurant)}" alt="">
+      <p>(${restaurant.rating.count})</p>
+    </div>  
+  `;
+}
+
 function updateAllRating(restaurants) {
   restaurants.forEach(restaurant => restaurant.rating = calculateRating(restaurant.reviews));
 }
@@ -756,7 +774,12 @@ export function updateCurrentRestaurantRating(restaurant) {
 }
 
 function calculateRating(reviews) {
-  if (!reviews) return null;
+  if (!reviews) {
+    return {
+      stars: 0,
+      count: 0
+    };
+  }
 
   const count = reviews.length;
   let totalStars = 0;
@@ -797,6 +820,67 @@ export function getAllMenus(restaurants) {
       menus.push(makeNewMenuAndAssignId(restaurant, menu));
     }
   }
+
+  return menus;
+}
+
+/*
+  Sort
+*/
+
+export function getAllMenuByHighestRating(restaurants) {
+  const menus = [];
+
+  const tempRestaurants = [...restaurants];
+
+  tempRestaurants.sort((a, b) => {
+    const ratingA = a.rating.stars;
+    const ratingB = b.rating.stars;
+    if (ratingA < ratingB) {
+      return 1;
+    }
+    if (ratingA > ratingB) {
+      return -1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
+
+  for (const restaurant of tempRestaurants) {
+    for (const menu of restaurant.menus) {
+      menus.push(makeNewMenuAndAssignId(restaurant, menu));
+    }
+  }
+
+  
+  return menus;
+}
+
+export function getAllMenuByHighestPrice(restaurants) {
+  const menus = [];
+
+  const tempRestaurants = [...restaurants];
+
+  for (const restaurant of tempRestaurants) {
+    for (const menu of restaurant.menus) {
+      menus.push(makeNewMenuAndAssignId(restaurant, menu));
+    }
+  }
+
+  menus.sort((a, b) => {
+    const priceA = a.price;
+    const priceB = b.price;
+    if (priceA > priceB) {
+      return 1;
+    }
+    if (priceA < priceB) {
+      return -1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
 
   return menus;
 }
@@ -915,5 +999,30 @@ export function getFilteredMenusByCuisine(cuisine) {
 
   return menus;
 }
+
+function generateRandomReviews(restaurants) {
+  for (let i = 0; i < restaurants.length; i++) {
+    const restaurant = restaurants[i];
+
+    const newReview = [];
+
+    for (let j = 0; j < 10; j++) {
+      const randomStars = Math.floor((Math.random() * 5)) + 1;
+      const newReviewObj = {
+        username: `User${j}`,
+        stars: randomStars,
+        comment: 'Good'
+      };
+
+      newReview.push(newReviewObj);
+    }
+
+    restaurant.reviews = newReview;
+  }
+  
+  console.log(restaurants);
+}
+
+generateRandomReviews(restaurants);
 
 updateAllRating(restaurants);

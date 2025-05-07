@@ -1,4 +1,10 @@
-import { getDbRestaurants, updateCurrentRestaurantRating, saveRestaurantsToLocalStorage } from "./data.js";
+import { 
+  getDbRestaurants,
+  updateCurrentRestaurantRating,
+  saveRestaurantsToLocalStorage,
+  getRestaurantRating,
+  getRestaurantRatingImage
+ } from "./data.js";
 import { getCurrentAccount, removeCurrentAccount } from "./account.js";
 
 if (!getCurrentAccount()) window.location.href = '../index.html';
@@ -13,23 +19,23 @@ function getRestaurant(restaurantId) {
   return restaurant;
 }
 
-function getRestaurantRatingImage(restaurant) {
-  let stars = restaurant.rating.stars >= 1 ? restaurant.rating.stars * 10 : String(restaurant.rating.stars * 10).padStart(2, '0');
+// function getRestaurantRatingImage(restaurant) {
+//   let stars = restaurant.rating.stars >= 1 ? restaurant.rating.stars * 10 : String(restaurant.rating.stars * 10).padStart(2, '0');
 
-  return `./images/ratings/rating-${stars}.png`;
-}
+//   return `./images/ratings/rating-${stars}.png`;
+// }
 
-function getRestaurantRating(restaurant) {
-  if (!restaurant.rating /*|| isNaN(restaurant.rating)*/) return '<p class="not-rated">This restaurant has not been rated yet</p>';
+// function getRestaurantRating(restaurant) {
+//   if (!restaurant.rating /*|| isNaN(restaurant.rating)*/) return '<p class="not-rated">This restaurant has not been rated yet</p>';
 
-  return `
-    <div class="restaurant-rating">
-      <p>${restaurant.rating.stars.toFixed(1)}</p>
-      <img src="${getRestaurantRatingImage(restaurant)}" alt="">
-      <p>(${restaurant.rating.count})</p>
-    </div>  
-  `;
-}
+//   return `
+//     <div class="restaurant-rating">
+//       <p>${restaurant.rating.stars.toFixed(1)}</p>
+//       <img src="${getRestaurantRatingImage(restaurant)}" alt="">
+//       <p>(${restaurant.rating.count})</p>
+//     </div>  
+//   `;
+// }
 
 function getCustomerRatingImage(review) {
   let stars = review.stars >= 1 ? review.stars * 10 : String(review.stars * 10).padStart(2, '0');
