@@ -1,12 +1,15 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* Root Variables */
 :root {
   --clr-primary: rgb(178, 44, 43);
   --clr-secondary: rgb(255, 245, 240);
+  --clr-header-bg: rgba(255, 255, 255, 0.8);
+  --clr-header: #B42C2B;
 }
 
-/*
-  CSS reset
-*/
-
+/* CSS Reset */
 *,
 *::before,
 *::after {
@@ -17,15 +20,15 @@
   margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
-}
-
 body {
-  line-height: 1.5;
+  line-height: 1.6;
+  /* Improved text spacing */
   -webkit-font-smoothing: antialiased;
+  font-family: 'Montserrat', 'Lato', sans-serif;
+  background-color: var(--clr-secondary);
+  color: #333;
+  scroll-behavior: smooth;
+  /* Smooth scrolling */
 }
 
 img,
@@ -54,103 +57,150 @@ h6 {
   overflow-wrap: break-word;
 }
 
-p {
-  text-wrap: pretty;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
 #root,
 #__next {
   isolation: isolate;
 }
 
-/*
-  Style
-*/
-
-body {
-  background-color: var(--clr-secondary);
+/* Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: #FFEFC8;
+  height: 80px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 0 0 10px 10px;
+  transition: background-color 0.3s ease-in-out;
+  /* Smooth background transition */
 }
 
+/* Logo Hover Effect */
+.header .logo {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.header .logo:hover {
+  transform: scale(1.05);
+  /* box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); */
+  /* Slightly more pronounced shadow */
+}
+
+/* Buttons */
+.header .back-btn,
+.header .logout-button {
+  padding: 0.7rem 1.2rem;
+  background-color: var(--clr-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+}
+
+.header .back-btn:hover,
+.header .logout-button:hover {
+  background-color: #A02B2B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.header .back-btn:active,
+.header .logout-button:active {
+  transform: scale(0.98);
+}
+
+.header img {
+  height: 60px;
+}
+
+/* Layout */
 .main {
   display: flex;
   flex-direction: column;
   gap: 50px;
+  padding-top: 100px;
+  /* Prevent content from hiding behind fixed header */
 }
 
-/*
-  Restaurant detail
-*/
-
+/* Restaurant Detail */
 .restaurant-detail {
-  /* background-color: var(--clr-primary); */
-  /* color: var(--clr-secondary); */
   border: 2px solid black;
-
   width: 80%;
   margin: auto;
-
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 2rem;
   align-items: center;
-
   padding: 1rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  /* Softer shadow */
+  transition: box-shadow 0.3s ease;
 }
 
-.restaurant-detail-left {
-  margin: auto;
+.restaurant-detail:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  /* Slightly stronger shadow */
 }
 
 .restaurant-detail-left>h1 {
-  font-size: 3.5rem;
+  font-size: 2.8rem;
+  /* Adjusted smaller font size */
+  color: var(--clr-primary);
 }
 
 .restaurant-detail-right {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   padding-right: 2rem;
 }
 
-/*
-  Restaurant menus
-*/
-
+/* Restaurant Menus */
 .restaurant-menus {
   border: 2px solid black;
-
   width: 80%;
   margin: auto;
   padding: 1rem;
-}
-
-.restaurant-name {
-  font-size: 3rem;
-  text-align: center;
-  margin-bottom: 3rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  /* Softer shadow */
 }
 
 .restaurant-menus-grid {
   padding: 2rem;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  transition: transform 0.3s ease-in-out;
 }
 
+.restaurant-menus-grid:hover {
+  transform: scale(1.02);
+}
+
+/* Card Hover Effect */
 .card {
-  border: 1px solid black;
+  border: 1px solid #ddd;
   border-radius: 1rem;
   overflow: hidden;
+  background-color: white;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.5);
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
 .card-text {
@@ -158,7 +208,9 @@ body {
 }
 
 .card-text h3 {
-  font-size: 2rem;
+  font-size: 1.8rem;
+  margin-bottom: 0.3rem;
+  color: var(--clr-primary);
 }
 
 .card-detail {
@@ -166,27 +218,27 @@ body {
   flex-direction: row;
   gap: 1rem;
   justify-content: space-between;
-
-  margin-top: 2rem;
+  margin-top: 1.2rem;
+  font-size: 0.95rem;
 }
 
-/*
-  Customer reviews
-*/
-
-
-
+/* Customer Reviews */
 .customer-reviews-container {
   border: 2px solid black;
   width: 80%;
   margin: auto;
   padding: 1rem;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  /* Softer shadow */
 }
 
 .customer-reviews-container>h2 {
-  font-size: 3rem;
+  font-size: 2.6rem;
   text-align: center;
   margin-bottom: 3rem;
+  color: var(--clr-primary);
 }
 
 .customer-reviews {
@@ -197,29 +249,83 @@ body {
 }
 
 .customer-review {
-  border: 1px solid black;
+  border: 1px solid #ccc;
   padding: 2rem;
+  border-radius: 10px;
+  background-color: #fffdfc;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+  transition: box-shadow 0.2s ease;
 }
 
-/*
-  Give review
-*/
+.customer-review div {
+  margin-bottom: 1ch;
+}
 
+.customer-review:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Animations for Dynamic Content */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.restaurant-detail,
+.restaurant-menus,
+.customer-reviews-container {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Give Review Form */
 .give-review {
-  /* width: 80%; */
-  /* margin: auto; */
-
-  border: 5px dashed black;
-  background-color: white;
-
   position: fixed;
   right: 5%;
   bottom: 5%;
+  width: 26%;
+  min-width: 280px;
+  height: auto;
+  padding: 1.8rem;
+  /* background-color: rgb(194, 252, 238); */
+  background-color: var(--clr-header-bg);
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  transition: all 0.3s ease-in-out;
+  z-index: 100;
+}
 
-  width: 30%;
-  height: 300px;
+.give-review h3 {
+  font-size: 1.5rem;
+  color: var(--clr-primary);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
 
-  padding: 2rem;
+#give-review-textarea {
+  width: 100%;
+  min-height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  resize: vertical;
+  background-color: #fffdfc;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+#give-review-textarea:focus {
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 6px rgba(178, 44, 43, 0.4);
+  /* Subtle glow effect */
 }
 
 .give-rating-container {
@@ -228,27 +334,34 @@ body {
   gap: 2ch;
 }
 
-#give-review-textarea {
-  display: block;
-  width: 100%;
+/* Button Hover and Focus Effect */
+.give-review button {
+  align-self: flex-end;
+  padding: 0.6rem 1.4rem;
+  background-color: var(--clr-primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/*
-  Back and logout button
-*/
-
-.header {
-  position: fixed;
-  left: 2%;
-  top: 2%;
+.give-review button:hover {
+  background-color: #A02B2B;
+  transform: translateY(-2px);
 }
 
+.give-review button:active {
+  transform: scale(0.97);
+}
 
+.give-review button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
 
-
-
-
-
+/* Rating Stars */
 .restaurant-rating,
 .customer-rating {
   display: flex;
@@ -269,4 +382,8 @@ body {
 .not-rated {
   color: rgb(163, 163, 163);
   font-size: 12px;
+}
+
+.restaurant-detail-right span {
+  font-weight: bold;
 }
