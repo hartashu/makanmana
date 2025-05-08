@@ -81,6 +81,8 @@ function renderFoodCards(menus) {
     `;
   }
 
+  if (menus.length === 0) cardsHtml = 'Menu not available'; 
+
   foodCardsEl.innerHTML = cardsHtml;
   foodCardsEl.scrollTop = 0;
 }
@@ -135,6 +137,8 @@ const filterPriceMaxInputEl = document.querySelector('#filter-price-max');
 const filterCuisineInputEl = document.querySelector('#filter-cuisine');
 const filterRatingSelectEl = document.querySelector('#filter-rating');
 
+const defaultOptionLocation = filterLocationSelectEl.querySelector('option[selected]');
+
 // Filter by location
 filterLocationSelectEl.addEventListener('change', () => {
   const location = filterLocationSelectEl.value;
@@ -172,6 +176,9 @@ filterPriceMinInputEl.addEventListener('change', () => {
       (maxPrice === 0 || maxPrice)) {
     renderFoodCards(menus);
   }
+
+  // filterPriceMinInputEl.value = 
+
 });
 
 filterPriceMaxInputEl.addEventListener('change', () => {

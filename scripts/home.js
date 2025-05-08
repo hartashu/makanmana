@@ -95,11 +95,23 @@ registerFormEl.addEventListener('submit', (event) => {
   const username = registerUsernameEl.value.trim();
   const password = registerPasswordEl.value.trim();
 
-  if (username.length && password.length) {
-    registerNewAccount(username, password);
-    registerInfoEl.innerText = 'Register successfully';
-  } else {
-    registerInfoEl.innerText = 'Register failed';
+  let isRegistered = false;
+
+  const accounts = getDbAccounts();
+  for (const account of accounts) {
+    if (username === account.username) {
+      registerInfoEl.innerText = 'User has been registered';
+      isRegistered = true;
+    }
+  }
+
+  if (!isRegistered) {
+    if (username.length && password.length) {
+      registerNewAccount(username, password);
+      registerInfoEl.innerText = 'Register successfully';
+    } else {
+      registerInfoEl.innerText = 'Register failed';
+    }
   }
 
   registerUsernameEl.value = '';

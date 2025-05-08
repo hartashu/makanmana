@@ -4,7 +4,6 @@
     1. Gading Serpong
     2. Alam Sutera
     3. BSD
-    4. Karawaci
 
 */
 
@@ -1052,8 +1051,19 @@ function generateRandomReviews(restaurants) {
 
     const newReview = [];
 
-    for (let j = 0; j < 10; j++) {
+    for (let j = 1; j <= 3; j++) {
       const randomStars = Math.floor((Math.random() * 5)) + 1;
+      const newReviewObj = {
+        username: `User${j}`,
+        stars: randomStars,
+        comment: 'Good'
+      };
+
+      newReview.push(newReviewObj);
+    }
+
+    for (let j = 4; j <= 10; j++) {
+      const randomStars = Math.floor(Math.random() * (5 - 4 + 1) + 4);
       const newReviewObj = {
         username: `User${j}`,
         stars: randomStars,
