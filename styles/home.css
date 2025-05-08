@@ -1,13 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+
 :root {
   --clr-primary: rgb(180, 44, 43);
   --clr-btn-hover: #e47d5c;
 }
 
-
-
-
-/* -------------------------------------------------- */
-/* RESET DAN BASE STYLING */
 *,
 *::before,
 *::after {
@@ -27,8 +25,8 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  /* background: linear-gradient(to bottom, #f5eee6, #d8c3b1); */
+  font-family: 'Montserrat', 'Lato', sans-serif;
+  /* font-family: "Bubblegum Sans", sans-serif; */
   color: #333;
   scroll-behavior: smooth;
 }
@@ -77,8 +75,6 @@ h6 {
   isolation: isolate;
 }
 
-/* -------------------------------------------------- */
-/* STYLE HEADER */
 .header {
   /* background: linear-gradient(90deg, #6b3e26, #9d6b53); */
   display: flex;
@@ -90,7 +86,7 @@ h6 {
 }
 
 .logo {
-  height: 120px;
+  height: 200px;
   transition: transform 0.3s ease-in-out;
   display: block;
   margin: 0;
@@ -133,7 +129,7 @@ h6 {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  /* Overlay untuk memberi efek gelap */
+
   z-index: -1;
 }
 
@@ -142,7 +138,8 @@ h6 {
   font-weight: 700;
   margin-bottom: 2rem;
   color: #ffffff;
-  font-family: 'Playfair Display', serif;
+  /* font-family: 'Playfair Display', serif; */
+  font-family: "Bubblegum Sans", sans-serif;
   letter-spacing: 2px;
   text-transform: uppercase;
   animation: slideIn 1.5s ease-out forwards;

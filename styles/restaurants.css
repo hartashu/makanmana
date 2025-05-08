@@ -65,6 +65,10 @@ header .logout-button:hover {
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
+.header h1 {
+  color: #FFEFC8;
+}
+
 /* Wrapper Layout */
 .wrapper {
   display: grid;
