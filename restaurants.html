@@ -24,6 +24,7 @@
           <div>
             <label for="filter-location">Choose your location:</label>
             <select name="filter-location" id="filter-location">
+              <option disabled selected value> -- select an option -- </option>
               <option value="Gading Serpong">Gading Serpong</option>
               <option value="BSD">BSD</option>
               <option value="Alam Sutera">Alam Sutera</option>
@@ -35,9 +36,11 @@
           <div>
             <label>Price range:</label>
             <br>
-            <input type="number" name="filter-price-min" id="filter-price-min" min="0" max="10_000_000" step="2000">
+            <input type="number" name="filter-price-min" id="filter-price-min" min="0" max="10_000_000" step="2000"
+              placeholder="From">
             <span>-</span>
-            <input type="number" name="filter-price-max" id="filter-price-max" min="0" max="10_000_000" step="2000">
+            <input type="number" name="filter-price-max" id="filter-price-max" min="0" max="10_000_000" step="2000"
+              placeholder="To">
           </div>
 
           <br><br>
@@ -45,6 +48,7 @@
           <div>
             <label for="filter-cuisine">Cuisine:</label>
             <select name="filter-cuisine" id="filter-cuisine">
+              <option disabled selected value> -- select an option -- </option>
               <option value="Indonesian">Indonesian</option>
               <option value="Chinese">Chinese</option>
               <option value="Western">Western</option>
@@ -63,6 +67,7 @@
           <div>
             <label for="filter-rating">Rating minimal:</label>
             <select name="filter-rating" id="filter-rating">
+              <option disabled selected value> -- select an option -- </option>
               <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
@@ -94,7 +99,7 @@
         <div>
           <label for="sort-by">Sort By: </label>
           <select name="sort-by" id="sort-by">
-            <option value="sortByRating">Highest Rating</option>
+            <option value="sortByRating" selected>Highest Rating</option>
             <option value="sortByHigherPrice">Higher Price</option>
             <option value="sortByLowerPrice">Lower Price</option>
             <option value="sortByAscending">Ascending</option>

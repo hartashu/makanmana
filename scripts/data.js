@@ -27,27 +27,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: 'Spring Roll',
-        image: './images/food/1.png',
+        image: '../images/food/Spring Roll.webp',
         price: 50_000 
       },
       {
         name: 'Salted Fish Fried Rice',
-        image: './images/food/1.png',
+        image: '../images/food/Salted Fish Fried Rice.webp',
         price: 61_000
       },
       {
         name: 'Sambal Fried Rice with Seafood',
-        image: './images/food/1.png',
+        image: '../images/food/Sambal Fried Rice with Seafood.webp',
         price: 75_000
       },
       {
         name: 'Dumpling Soup',
-        image: './images/food/1.png',
+        image: '../images/food/Dumpling Soup.webp',
         price: 85_000
       },
       {
         name: 'Hot Plate Beancurd',
-        image: './images/food/1.png',
+        image: '../images/food/Hot Plate Beancurd.webp',
         price: 87_000
       }
     ],
@@ -79,27 +79,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Mighty Mushroom Burger",
-        image: './images/food/1.png',
+        image: '../images/food/Mighty Mushroom Burger.webp',
         price: 60_500 
       },
       {
         name: "Truffle Mushroom Pasta",
-        image: './images/food/1.png',
+        image: '../images/food/Truffle Mushroom Pasta.webp',
         price: 66_000
       },
       {
         name: "Blackpepper Bowl",
-        image: './images/food/1.png',
+        image: '../images/food/Blackpepper Bowl.webp',
         price: 53_900
       },
       {
         name: "Teriyaki Bowl",
-        image: './images/food/1.png',
+        image: '../images/food/Teriyaki Bowl.webp',
         price: 49_500
       },
       {
         name: "Creamy Mushroom Soup",
-        image: './images/food/1.png',
+        image: '../images/food/Creamy Mushroom Soup.webp',
         price: 44_000
       }
     ]
@@ -122,27 +122,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Butler's Sliders",
-        image: './images/food/1.png',
+        image: '../images/food/Butlers Sliders.webp',
         price: 104_500 
       },
       {
         name: "Prawn Scampi",
-        image: './images/food/1.png',
+        image: '../images/food/Prawn Scampi.webp',
         price: 141_900
       },
       {
         name: "Butler's Steak",
-        image: './images/food/1.png',
+        image: '../images/food/Butlers Steak.webp',
         price: 251_900
       },
       {
         name: "Steak & Egg",
-        image: './images/food/1.png',
+        image: '../images/food/Steak & Egg.webp',
         price: 174_900
       },
       {
         name: "Garlic Rice",
-        image: './images/food/1.png',
+        image: '../images/food/Garlic Rice.webp',
         price: 33_000
       }
     ]
@@ -165,27 +165,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Ikan Lele Goreng",
-        image: './images/food/1.png',
+        image: '../images/food/Ikan Lele Goreng.webp',
         price: 10_000 
       },
       {
         name: "Ayam Goreng",
-        image: './images/food/1.png',
+        image: '../images/food/Ayam Goreng.webp',
         price: 12_000
       },
       {
         name: "Daging Rendang",
-        image: './images/food/1.png',
+        image: '../images/food/Daging rendang.webp',
         price: 15_000
       },
       {
         name: "Ayam Opor",
-        image: './images/food/1.png',
+        image: '../images/food/Ayam Opor.webp',
         price: 12_000
       },
       {
         name: "Ikan Tongkol Goreng",
-        image: './images/food/1.png',
+        image: '../images/food/Ikan Tongkol Goreng.webp',
         price: 10_000
       }
     ]
@@ -208,27 +208,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Es Kopi Hitam Tetangga",
-        image: './images/food/1.png',
+        image: '../images/food/Es Kopi Hitam Tetangga.webp',
         price: 22_000 
       },
       {
         name: "Cappucino",
-        image: './images/food/1.png',
+        image: '../images/food/Cappucino.webp',
         price: 31_000
       },
       {
         name: "Chocolate",
-        image: './images/food/1.png',
+        image: '../images/food/Chocolate.webp',
         price: 33_000
       },
       {
-        name: "Caramel Macchiato ",
-        image: './images/food/1.png',
+        name: "Caramel Macchiato",
+        image: '../images/food/Caramel Macchiato.webp',
         price: 35_000
       },
       {
         name: "Es Kopi Susu Tetangga",
-        image: './images/food/1.png',
+        image: '../images/food/Es Kopi Susu Tetangga.webp',
         price: 25_000
       }
     ]
@@ -251,27 +251,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Pangsit Goreng 5 Pcs",
-        image: './images/food/1.png',
+        image: '../images/food/Pangsit Goreng 5 Pcs.webp',
         price: 31_250 
       },
       {
         name: "Bakmi Aka / Ayam / Babi",
-        image: './images/food/1.png',
+        image: '../images/food/BakmiAKA.webp',
         price: 42_500
       },
       {
         name: "Bakmi Pangsit / Bakso Aka / Ayam / Babi",
-        image: './images/food/1.png',
+        image: '../images/food/Bakmi Pangsit.webp',
         price: 55_000
       },
       {
         name: "Bakmi Polos Tanpa Daging",
-        image: './images/food/1.png',
+        image: '../images/food/Bakmi Polos Tanpa Daging.webp',
         price: 39_900
       },
       {
         name: "Kwetiau Aka / Ayam / Babi",
-        image: './images/food/1.png',
+        image: '../images/food/Kwetiau Aka.webp',
         price: 42_500
       }
     ]
@@ -293,28 +293,28 @@ const defaultRestaurants = [
     },
     menus: [
       {
-        name: "Nasi Liwet",
-        image: './images/food/1.png',
+        name: "Mie Goreng Jawa",
+        image: '../images/food/Mie Goreng Jawa.webp',
         price: 56_250 
       },
       {
         name: "Gurame Bakar",
-        image: './images/food/1.png',
+        image: '../images/food/Gurame Bakar.webp',
         price: 168_750
       },
       {
         name: "Nasi Goreng Pete",
-        image: './images/food/1.png',
+        image: '../images/food/Nasi Goreng Pete.webp',
         price: 75_000
       },
       {
         name: "Lele Penyet",
-        image: './images/food/1.png',
+        image: '../images/food/Lele Penyet.webp',
         price: 112_500
       },
       {
         name: "Ayam Dada Bakar",
-        image: './images/food/1.png',
+        image: '../images/food/Ayam Dada Bakar.webp',
         price: 40_000
       }
     ]
@@ -337,27 +337,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Beef Bulgogi Butter Rice",
-        image: './images/food/1.png',
+        image: '../images/food/Beef Bulgogi Butter Rice.webp',
         price: 84_549
       },
       {
         name: "Lamb Fried Rice",
-        image: './images/food/1.png',
+        image: '../images/food/Lamb Fried Rice.webp',
         price: 88_451
       },
       {
         name: "Mentai Rice",
-        image: './images/food/1.png',
+        image: '../images/food/Mentai Rice.webp',
         price: 62_436
       },
       {
         name: "Stir Fry Noodle",
-        image: './images/food/1.png',
+        image: '../images/food/Stir Fry Noodle.webp',
         price: 67_639
       },
       {
         name: "Chicken Tempura Udon",
-        image: './images/food/1.png',
+        image: '../images/food/Chicken Tempura Udon.webp',
         price: 75_443
       }
     ]
@@ -380,27 +380,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Crunchy French Toast",
-        image: './images/food/1.png',
+        image: '../images/food/Crunchy French Toast.webp',
         price: 90_000
       },
       {
         name: "Choco Berry Waffle",
-        image: './images/food/1.png',
+        image: '../images/food/Choco Berry Waffle.webp',
         price: 82_000
       },
       {
         name: "Chocolat Noir Cake",
-        image: './images/food/1.png',
+        image: '../images/food/Chocolat Noir Cake.webp',
         price: 57_000
       },
       {
         name: "Pain Au Chocolate",
-        image: './images/food/1.png',
+        image: '../images/food/Pain Au Chocolate.webp',
         price: 39_000
       },
       {
         name: "Butter Croissant",
-        image: './images/food/1.png',
+        image: '../images/food/Butter Croissant.webp',
         price: 28_000
       }
     ]
@@ -423,27 +423,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Peach Olong Tea",
-        image: './images/food/1.png',
+        image: '../images/food/Peach Olong Tea.webp',
         price: 12_500
       },
       {
         name: "Banana Sundae",
-        image: './images/food/1.png',
+        image: '../images/food/Banana Sundae.webp',
         price: 20_000
       },
       {
         name: "Caramel Boba Milk Tea",
-        image: './images/food/1.png',
+        image: '../images/food/Caramel Boba Milk Tea.webp',
         price: 23_750
       },
       {
         name: "Mango Boba Ice Cream",
-        image: './images/food/1.png',
+        image: '../images/food/Mango Boba Ice Cream.webp',
         price: 27_500
       },
       {
         name: "Looong Boba Milk Tea CNY Edition",
-        image: './images/food/1.png',
+        image: '../images/food/Looong Boba Milk Tea CNY Edition.webp',
         price: 30_000
       }
     ]
@@ -466,27 +466,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Sayur Asem",
-        image: './images/food/1.png',
+        image: '../images/food/sayur-asem.webp',
         price: 26_900
       },
       {
         name: "Ayam Bakar ",
-        image: './images/food/1.png',
+        image: '../images/food/ayam-bakar.webp',
         price: 48_200
       },
       {
         name: "Gado Gado Lontong",
-        image: './images/food/1.png',
+        image: '../images/food/gado-gado-lontong.webp',
         price: 55_000
       },
       {
         name: "Empal Madiun",
-        image: './images/food/1.png',
+        image: '../images/food/empal-madiun.webp',
         price: 56_400
       },
       {
         name: "Lontong Sayur",
-        image: './images/food/1.png',
+        image: '../images/food/lontong-sayur.jpg',
         price: 45_200
       }
     ]
@@ -509,27 +509,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Sate Kulit Ayam Digoreng",
-        image: './images/food/1.png',
+        image: '../images/food/sate-kulit-ayam.webp',
         price: 22_500
       },
       {
         name: "Soto Betawi Ayam Bagian Dada",
-        image: './images/food/1.png',
+        image: '../images/food/soto-betawi-ayam.webp',
         price: 42_000
       },
       {
         name: "Nasi Goreng Campur Isian Sapi",
-        image: './images/food/1.png',
+        image: '../images/food/nasi-goreng-campur-isian-sapi.webp',
         price: 45_000
       },
       {
         name: "Sop Oseng Daging Sapi ",
-        image: './images/food/1.png',
+        image: '../images/food/sop-oseng-daging-sapi.webp',
         price: 51_000
       },
       {
         name: "Ayam Goreng Bawang Putih (Dada Filet 250gr)",
-        image: './images/food/1.png',
+        image: '../images/food/ayam-goreng-bawang-putih.jpg',
         price: 59_500
       }
     ]
@@ -552,27 +552,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Bakmi Ahog (Crispy Pork)",
-        image: './images/food/1.png',
+        image: '../images/food/bakmi-ahog.webp',
         price: 41_000
       },
       {
         name: "Bakmi Charsiu",
-        image: './images/food/1.png',
+        image: '../images/food/bakmi-charsiu.webp',
         price: 55_000
       },
       {
         name: "Hainan Chicken Rice",
-        image: './images/food/1.png',
+        image: '../images/food/hainan-chicken-rice.webp',
         price: 40_000
       },
       {
         name: "Pork Knuckle",
-        image: './images/food/1.png',
+        image: '../images/food/pork-knuckle.webp',
         price: 58_000
       },
       {
         name: "BBQ Pork Belly",
-        image: './images/food/1.png',
+        image: '../images/food/bbq-pork-belly.webp',
         price: 60_000
       }
     ]
@@ -595,27 +595,27 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Brulee Chiato",
-        image: './images/food/1.png',
+        image: '../images/food/brulee-chiato.webp',
         price: 39_655
       },
       {
         name: "Literally Kopi Susu",
-        image: './images/food/1.png',
+        image: '../images/food/literally-kopi-susu.webp',
         price: 33_990
       },
       {
         name: "Black On The Rock",
-        image: './images/food/1.png',
+        image: '../images/food/black-on-the-rock.webp',
         price: 28_325
       },
       {
         name: "Dark Mocha HQQ",
-        image: './images/food/1.png',
+        image: '../images/food/dark-mocha.webp',
         price: 36_256
       },
       {
         name: "Kopi Susu Tiramisu",
-        image: './images/food/1.png',
+        image: '../images/food/kopi-susu-tiramisu.webp',
         price: 38_552
       }
     ]
@@ -638,35 +638,35 @@ const defaultRestaurants = [
     menus: [
       {
         name: "Roti Sweet Cheese",
-        image: './images/food/1.png',
+        image: '../images/food/sweet-cheese.webp',
         price: 15_400
       },
       {
         name: "Roti Baso Ayam Telur Asin",
-        image: './images/food/1.png',
+        image: '../images/food/roti-baso-ayam-telur-asin.webp',
         price: 17_800
       },
       {
         name: "Roti Sosis",
-        image: './images/food/1.png',
+        image: '../images/food/sosis.webp',
         price: 19_000
       },
       {
         name: "Roti Pisang Coklat Keju",
-        image: './images/food/1.png',
+        image: '../images/food/pisang-coklat-keju.webp',
         price: 17_800
       },
       {
         name: "Roti Pizza",
-        image: './images/food/1.png',
+        image: '../images/food/pizza.webp',
         price: 20_400
       }
     ]
   },
   {
     restaurantId: 16,
-    name: "Restorant Dewa",
-    address: "GOP 1 Ruang Blabla",
+    name: "Restorant Ivan",
+    address: "GOP 1 The Breeze",
     location: "BSD",
     website: "",
     cuisine: "Indonesian",
@@ -680,28 +680,28 @@ const defaultRestaurants = [
     },
     menus: [
       {
-        name: "Bubur Ayam Besi Tembaga",
-        image: './images/food/1.png',
+        name: "Bubur Mpasi",
+        image: '../images/food/Bubur Mpasi.jpg',
         price: 1_680_000
       },
       {
         name: "Nasi Goreng Aking",
-        image: './images/food/1.png',
+        image: '../images/food/Nasi Aking.jpg',
         price: 888_888
       },
       {
         name: "Air Comberan",
-        image: './images/food/1.png',
+        image: '../images/food/Air Comberan.jpg',
         price: 666_000
       },
       {
-        name: "Kerak Arang",
-        image: './images/food/1.png',
+        name: "Sisa Gosongan",
+        image: '../images/food/Gosongan Panci.jpg',
         price: 999_999
       },
       {
-        name: "Roti Gosong",
-        image: './images/food/1.png',
+        name: "Roti Batu",
+        image: '../images/food/Roti Batu.jpg',
         price: 777_777
       }
     ]
@@ -995,7 +995,7 @@ export function getFilteredMenusByCuisine(cuisine, restaurants) {
   return menus;
 }
 
-export function getFilteredMenusByPrice(min = -Infinity, max = Infinity) {
+export function getFilteredMenusByPrice(min = -Infinity, max = Infinity, restaurants) {
   let menus = [];
 
   for (const restaurant of restaurants) {
@@ -1066,9 +1066,11 @@ function generateRandomReviews(restaurants) {
     restaurant.reviews = newReview;
   }
   
-  console.log(restaurants);
+  // console.log(restaurants);
+
+  saveRestaurantsToLocalStorage();
 }
 
-// generateRandomReviews(restaurants);
+generateRandomReviews(restaurants);
 
 updateAllRating(restaurants);

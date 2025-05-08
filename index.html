@@ -12,11 +12,21 @@
 
 <body>
 
+  <header class="header">
+    <img src="./images/logo/logo-makan-mana.png" alt="" class="logo">
+  </header>
+
   <main>
 
-    <h1>HOME</h1>
+    <div class="hero-image">
+      <h1>Kamu lagi cari makan?</h1>
+      <button class="show-modal-login">Login</button>
+      <button class="show-modal-register">Register</button>
+    </div>
 
-    <div class="modal-sign-in">
+    <div class="modal-login hidden">
+
+      <h2>Login</h2>
 
       <form action="" id="login-form">
         <div>
@@ -30,6 +40,7 @@
         </div>
 
         <button type="submit" id="login-button">Login</button>
+        <button type="button" id="close-modal-login">Close</button>
       </form>
 
       <p id="login-error"></p>
@@ -40,7 +51,9 @@
     <br>
     <br>
 
-    <div class="modal-register">
+    <div class="modal-register hidden">
+
+      <h2>Register</h2>
 
       <form action="" id="register-form">
         <div>
@@ -54,9 +67,10 @@
         </div>
 
         <button type="submit" id="register-button">Register</button>
-
-        <p id="register-info"></p>
+        <button type="button" id="close-modal-register">Close</button>
       </form>
+
+      <p id="register-info"></p>
 
     </div>
 
