@@ -28,7 +28,7 @@ import {
 import { getCurrentAccount, removeCurrentAccount } from "./account.js";
 import { formatPrice } from "./helper.js";
 
-if (!getCurrentAccount) window.location.href = '../index.html';
+if (!getCurrentAccount()) window.location.href = '../index.html';
 
 function saveFilters() {
   const filters = {
@@ -189,8 +189,7 @@ filterPriceMinInputEl.addEventListener('change', () => {
     return 0;
   });
 
-  if ((minPrice === 0 || minPrice) && 
-      (maxPrice === 0 || maxPrice)) {
+  if (!isNaN(minPrice) && !isNaN(maxPrice)) {
     renderFoodCards(menus);
   }
   saveFilters();
@@ -219,8 +218,7 @@ filterPriceMaxInputEl.addEventListener('change', () => {
     return 0;
   });
 
-  if ((minPrice === 0 || minPrice) && 
-      (maxPrice === 0 || maxPrice)) {
+  if (!isNaN(minPrice) && !isNaN(maxPrice)) {
     renderFoodCards(menus);
   }
   saveFilters();

@@ -7,7 +7,9 @@
   <title>Document</title>
 
   <link rel="stylesheet" href="./styles/restaurants.css">
-  <script defer type="module" src="./scripts/restaurants.js"></script>
+  <script defer type="module" src="./scripts/restaurants.js"> if (!localStorage.getItem("currentAccount")) {
+    window.location.href = "index.html";
+  }</script>
 </head>
 
 <body>
@@ -57,7 +59,7 @@
               <option value="Padang">Padang</option>
               <option value="Fast Food">Fast Food</option>
               <option value="Noodles">Noodles</option>
-              <option value="Dessert">Snack</option>
+              <option value="Snack">Snack</option>
               <option value="Beverages">Beverages</option>
             </select>
           </div>
