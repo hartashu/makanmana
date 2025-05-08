@@ -60,8 +60,8 @@ function renderFoodCards(menus) {
     const restaurant = getRestaurantByRestaurantId(menu.restaurantId, restaurants);
 
     cardsHtml += `
-      <a href='../restaurant.html?restaurantId=${menu.restaurantId}'>
-        <div class="card">
+      <div class="card">
+        <a href='../restaurant.html?restaurantId=${menu.restaurantId}'>
           <img src="${menu.image}" alt="" class="card-image">
           <div class="card-text">
             <h3>${menu.name}</h3>
@@ -69,15 +69,15 @@ function renderFoodCards(menus) {
 
             <div class="card-detail">
               <div>
-                <p>Restaurant: ${restaurant.name}</p>
+                <p>${restaurant.name}</p>
                 ${getRestaurantRating(restaurant)}
               </div>
-              <p class="card-location">Location: ${restaurant.location}</p>
+              <p class="card-location">${restaurant.location}</p>
             </div>
 
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     `;
   }
 
@@ -222,7 +222,6 @@ filterRatingSelectEl.addEventListener('change', () => {
 const tabFoodsEl = document.querySelector('.tab-foods');
 const tabShopsEl = document.querySelector('.tab-shops');
 
-
 const foodCardsEl = document.querySelector('.food-cards');
 const shopCardsEl = document.querySelector('.shop-cards');
 const filterEl = document.querySelector('.filter');
@@ -231,12 +230,18 @@ tabShopsEl.addEventListener('click', () => {
   foodCardsEl.classList.add('hidden');
   shopCardsEl.classList.remove('hidden');
 
+  tabShopsEl.classList.add('main-top-active');
+  tabFoodsEl.classList.remove('main-top-active');
+
   filterEl.style.pointerEvents = 'none';
 });
 
 tabFoodsEl.addEventListener('click', () => {
   foodCardsEl.classList.remove('hidden');
   shopCardsEl.classList.add('hidden');
+
+  tabShopsEl.classList.remove('main-top-active');
+  tabFoodsEl.classList.add('main-top-active');
 
   filterEl.style.pointerEvents = 'auto';
 });

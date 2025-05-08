@@ -11,7 +11,8 @@
 </head>
 
 <body>
-  <header>
+  <header class="header">
+    <img src="./images/logo/logo-makan-mana.png" alt="" class="logo">
     <button class="logout-button">Logout</button>
   </header>
 
@@ -31,19 +32,17 @@
             </select>
           </div>
 
-          <br><br>
-
           <div>
             <label>Price range:</label>
             <br>
-            <input type="number" name="filter-price-min" id="filter-price-min" min="0" max="10_000_000" step="2000"
-              placeholder="From">
-            <span>-</span>
-            <input type="number" name="filter-price-max" id="filter-price-max" min="0" max="10_000_000" step="2000"
-              placeholder="To">
+            <div class="price-container">
+              <input type="number" name="filter-price-min" id="filter-price-min" min="0" max="10_000_000" step="2000"
+                placeholder="From">
+              <span>-</span>
+              <input type="number" name="filter-price-max" id="filter-price-max" min="0" max="10_000_000" step="2000"
+                placeholder="To">
+            </div>
           </div>
-
-          <br><br>
 
           <div>
             <label for="filter-cuisine">Cuisine:</label>
@@ -52,17 +51,15 @@
               <option value="Indonesian">Indonesian</option>
               <option value="Chinese">Chinese</option>
               <option value="Western">Western</option>
-              <option value="Japanese">Japanese</option>
-              <option value="Korean">Korean</option>
-              <option value="Padang">Padang</option>
-              <option value="Fast Food">Fast Food</option>
+              <!-- <option value="Japanese">Japanese</option> -->
+              <!-- <option value="Korean">Korean</option> -->
+              <!-- <option value="Padang">Padang</option> -->
+              <!-- <option value="Fast Food">Fast Food</option> -->
               <option value="Noodles">Noodles</option>
               <option value="Dessert">Snack</option>
               <option value="Beverages">Beverages</option>
             </select>
           </div>
-
-          <br><br>
 
           <div>
             <label for="filter-rating">Rating minimal:</label>
@@ -92,7 +89,7 @@
     <main class="main">
       <div class="main-top">
         <ul>
-          <li class="tab-foods">Foods</li>
+          <li class="tab-foods main-top-active">Foods</li>
           <li class="tab-shops">Shops</li>
         </ul>
 

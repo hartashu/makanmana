@@ -90,7 +90,7 @@ function renderRestaurantPage() {
       <p><span>Address:<span> ${restaurant.address}</p>
       <p><span>Location:<span> ${restaurant.location}</p>
       <p><span>Operating Hours:<span> ${restaurant.operatingHours.openingHours} - ${restaurant.operatingHours.closingHours}</p>
-      <p><span>Website:<span> ${restaurant.website}</p>
+      <p><span>Website:<span> <a href="${restaurant.website}" target="_blank">${restaurant.website}</a></p>
     </div>
   `;
 
@@ -110,14 +110,14 @@ function renderRestaurantPage() {
         <img src="${menu.image}" alt="" class="card-image">
         <div class="card-text">
           <h3>${menu.name}</h3>
-          <p>Price: ${formatPrice(menu.price, 'IDR')}</p>
+          <p style="font-weight: bold">Price: ${formatPrice(menu.price, 'IDR')}</p>
 
           <div class="card-detail">
             <div>
               <p>Restaurant: ${restaurant.name}</p>
               ${getRestaurantRating(restaurant)}
             </div>
-            <p class="card-location">Location: ${restaurant.location}</p>
+            <p class="card-location">Loc: ${restaurant.location}</p>
           </div>
 
         </div>
@@ -201,10 +201,13 @@ function renderRestaurantPage() {
       if (!restaurant.hasOwnProperty('reviews')) restaurant.reviews = []; 
 
       restaurant.reviews.push(newReview);
+
     }
 
-    updateCurrentRestaurantRating(restaurant);
+    giveReviewTextarea.value = '';
+    
     saveRestaurantsToLocalStorage();
+    updateCurrentRestaurantRating(restaurant);
     renderRestaurantPage();
   });
   

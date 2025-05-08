@@ -12,8 +12,8 @@
 
 <body>
   <header class="header">
-    <a href="./restaurants.html">Back to Filter Page</a>
-    <br>
+    <a href="./restaurants.html" class="back-btn">Back to Filter Page</a>
+    <img src="./images/logo/logo-makan-mana.png" alt="" class="logo">
     <button class="logout-button">Logout</button>
   </header>
 
@@ -23,7 +23,7 @@
     </div>
 
     <div class="restaurant-menus">
-      <h2 class="restaurant-name"></h2>
+      <h2 class="restaurant-name" style="text-align: center; margin-bottom: 1ch;"></h2>
       <div class="restaurant-menus-grid">
 
       </div>
@@ -37,10 +37,9 @@
     </div>
 
     <div class="give-review">
-      <p>Username: <span class="give-review-username"></span></p>
-      <p>Rating:</p>
-
+      <p>Username: <span class="give-review-username" style="font-weight: bold;"></span></p>
       <form id="give-review-form">
+        <p>Rating:</p>
         <div class="give-rating-container">
           <!-- <input required type="range" min="1" max="5" step="0.5" value="5" id="give-rating"
             oninput="this.nextElementSibling.value = this.value">
@@ -70,6 +69,8 @@
             <label for="rate-five">5</label>
           </div>
         </div>
+
+        <br>
 
         <div>
           <label for="give-review-textarea">Comment:</label>
