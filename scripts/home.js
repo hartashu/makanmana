@@ -28,7 +28,7 @@ loginFormEl.addEventListener('submit', (event) => {
   if (isUserRegistered(username, password)) {
     setCurrentAccount(username);
     console.log('Login successfully');
-    window.location.href = '../restaurants.html';
+    window.location.href = 'restaurants.html';
   } else {
     loginErrorEl.innerText = 'Wrong username or password';
   }
