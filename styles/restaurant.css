@@ -26,6 +26,10 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  body {
+  background-color: #e8f5e9;
+}
+
 }
 
 img,

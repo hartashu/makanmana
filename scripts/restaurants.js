@@ -30,6 +30,18 @@ import { formatPrice } from "./helper.js";
 
 if (!getCurrentAccount) window.location.href = '../index.html';
 
+function saveFilters() {
+  const filters = {
+    location: filterLocationSelectEl.value,
+    priceMin: filterPriceMinInputEl.value,
+    priceMax: filterPriceMaxInputEl.value,
+    cuisine: filterCuisineInputEl.value,
+    rating: filterRatingSelectEl.value,
+  };
+  localStorage.setItem("restaurantFilters", JSON.stringify(filters));
+}
+
+
 /*
   Logout button
 */
@@ -38,8 +50,10 @@ const logoutButtonEl = document.querySelector('.logout-button');
 
 logoutButtonEl.addEventListener('click', () => {
   removeCurrentAccount();
+  localStorage.removeItem("restaurantFilters"); // clear saved filters
   window.location.href = '../index.html';
 });
+
 
 /*
   Show foods
@@ -90,6 +104,16 @@ renderFoodCards(menus);
 /*
   Sort by:
 */
+// === Load saved filters from localStorage ===
+const savedFilters = JSON.parse(localStorage.getItem("restaurantFilters"));
+if (savedFilters) {
+  filterLocationSelectEl.value = savedFilters.location || "";
+  filterPriceMinInputEl.value = savedFilters.priceMin || "";
+  filterPriceMaxInputEl.value = savedFilters.priceMax || "";
+  filterCuisineInputEl.value = savedFilters.cuisine || "";
+  filterRatingSelectEl.value = savedFilters.rating || "";
+}
+
 
 const sortByEl = document.querySelector('#sort-by');
 sortByEl.addEventListener('change', () => {
@@ -134,6 +158,7 @@ filterLocationSelectEl.addEventListener('change', () => {
   const menus = getFilteredMenusByLocation(location, restaurants);
 
   renderFoodCards(menus);
+  saveFilters();
 });
 
 // Filter by price
@@ -168,6 +193,7 @@ filterPriceMinInputEl.addEventListener('change', () => {
       (maxPrice === 0 || maxPrice)) {
     renderFoodCards(menus);
   }
+  saveFilters();
 });
 
 filterPriceMaxInputEl.addEventListener('change', () => {
@@ -189,7 +215,6 @@ filterPriceMaxInputEl.addEventListener('change', () => {
     if (priceA < priceB) {
       return -1;
     }
-  
     // names must be equal
     return 0;
   });
@@ -198,6 +223,7 @@ filterPriceMaxInputEl.addEventListener('change', () => {
       (maxPrice === 0 || maxPrice)) {
     renderFoodCards(menus);
   }
+  saveFilters();
 });
 
 // Filter by cuisine
@@ -207,6 +233,7 @@ filterCuisineInputEl.addEventListener('change', () => {
   const menus = getFilteredMenusByCuisine(cuisine, restaurants);
 
   renderFoodCards(menus);
+  saveFilters();
 });
 
 // Filter by rating
@@ -216,6 +243,7 @@ filterRatingSelectEl.addEventListener('change', () => {
   const menus = getFilteredMenusByRating(rating, restaurants);
 
   renderFoodCards(menus);
+  saveFilters();
 });
 
 // Tabs foods & shops
