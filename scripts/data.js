@@ -11,7 +11,7 @@
 const defaultRestaurants = [
   {
     restaurantId: 1,
-    name: "Wee Nam Kee Chicken Rice The Breeze, BSD City",
+    name: "Wee Nam Kee Chicken Rice",
     address: "The Breeze BSD, Batik 2 - L22, Jl. BSD Green Office Park, Sampora, Cisauk, Tangerang Regency, Banten 15345",
     location: "BSD",
     website: "",
@@ -63,10 +63,10 @@ const defaultRestaurants = [
   },
   {
     restaurantId: 2,
-    name: "Burgreens The Breeze - Healthy Plant-Based Eatery",
+    name: "Burgreens (Healthy Plant Based Eatery)",
     address: "Jl. BSD Green Office Park No.21 L16, Sampora, Kec. Cisauk, Kabupaten Tangerang, Banten 15345",
     location: "BSD",
-    website: "",
+    website: "www.burgreens.com",
     cuisine: "Western",
     rating: {
       stars: undefined,
@@ -1071,6 +1071,6 @@ function generateRandomReviews(restaurants) {
   saveRestaurantsToLocalStorage();
 }
 
-generateRandomReviews(restaurants);
+// generateRandomReviews(restaurants);
 
 updateAllRating(restaurants);
