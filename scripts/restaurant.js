@@ -6,6 +6,7 @@ import {
   getRestaurantRatingImage
  } from "./data.js";
 import { getCurrentAccount, removeCurrentAccount } from "./account.js";
+import { formatPrice } from "./helper.js";
 
 if (!getCurrentAccount()) window.location.href = '../index.html';
 
@@ -109,7 +110,7 @@ function renderRestaurantPage() {
         <img src="${menu.image}" alt="" class="card-image">
         <div class="card-text">
           <h3>${menu.name}</h3>
-          <p>Price: Rp. ${menu.price}</p>
+          <p>Price: ${formatPrice(menu.price, 'IDR')}</p>
 
           <div class="card-detail">
             <div>

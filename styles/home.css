@@ -66,3 +66,61 @@ h6 {
 /*
   Style
 */
+
+.header {
+  background-color: grey;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.logo {
+  height: 88px;
+}
+
+/*
+  Modal sign in
+*/
+
+.modal-login {
+  background-color: grey;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  /* transform: translateX(-50%); */
+  /* transform: translateY(-50%); */
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 5rem;
+}
+
+/*
+  Modal register
+*/
+
+.modal-register {
+  background-color: lightpink;
+  position: fixed;
+  top: 20%;
+  left: 20%;
+
+  /* transform: translateX(-50%); */
+  /* transform: translateY(-50%); */
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 5rem;
+}
+
+/*
+  Helper
+*/
+
+.hidden {
+  display: none;
+}

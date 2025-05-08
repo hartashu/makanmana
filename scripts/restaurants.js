@@ -26,6 +26,7 @@ import {
   getAllRestaurants
 } from "./data.js";
 import { getCurrentAccount, removeCurrentAccount } from "./account.js";
+import { formatPrice } from "./helper.js";
 
 if (!getCurrentAccount) window.location.href = '../index.html';
 
@@ -45,7 +46,9 @@ logoutButtonEl.addEventListener('click', () => {
 */
 
 const restaurants = getDbRestaurants();
-const menus = getAllMenus(restaurants);
+// const menus = getAllMenus(restaurants);
+const menus = getAllMenuByHighestRating(restaurants);
+
 
 function renderFoodCards(menus) {
   const foodCardsEl = document.querySelector('.food-cards');
@@ -62,7 +65,7 @@ function renderFoodCards(menus) {
           <img src="${menu.image}" alt="" class="card-image">
           <div class="card-text">
             <h3>${menu.name}</h3>
-            <p>Price: Rp. ${menu.price}</p>
+            <p>Price: ${formatPrice(menu.price, 'IDR')}</p>
 
             <div class="card-detail">
               <div>
@@ -79,6 +82,7 @@ function renderFoodCards(menus) {
   }
 
   foodCardsEl.innerHTML = cardsHtml;
+  foodCardsEl.scrollTop = 0;
 }
 
 renderFoodCards(menus);
@@ -137,21 +141,61 @@ const filterPriceMinInputEl = document.querySelector('#filter-price-min');
 const filterPriceMaxInputEl = document.querySelector('#filter-price-max');
 
 filterPriceMinInputEl.addEventListener('change', () => { 
-  const minPrice = Number(filterPriceMinInputEl.value);
-  const maxPrice = Number(filterPriceMaxInputEl.value);
+  let minPrice = Number(filterPriceMinInputEl.value);
+  let maxPrice = Number(filterPriceMaxInputEl.value); 
 
-  const menus = getFilteredMenusByPrice(minPrice, maxPrice);
-  if (minPrice && maxPrice) {
+  if (minPrice === 0) minPrice = -Infinity;
+  if (maxPrice === 0) maxPrice = Infinity;
+
+  let menus = getFilteredMenusByPrice(minPrice, maxPrice, restaurants);
+
+  // Sort from cheapest
+  menus.sort((a, b) => {
+    const priceA = a.price;
+    const priceB = b.price;
+    if (priceA > priceB) {
+      return 1;
+    }
+    if (priceA < priceB) {
+      return -1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
+
+  if ((minPrice === 0 || minPrice) && 
+      (maxPrice === 0 || maxPrice)) {
     renderFoodCards(menus);
   }
 });
 
 filterPriceMaxInputEl.addEventListener('change', () => {
-  const minPrice = Number(filterPriceMinInputEl.value);
-  const maxPrice = Number(filterPriceMaxInputEl.value);
+  let minPrice = Number(filterPriceMinInputEl.value);
+  let maxPrice = Number(filterPriceMaxInputEl.value);
 
-  const menus = getFilteredMenusByPrice(minPrice, maxPrice);
-  if (minPrice && maxPrice) {
+  if (minPrice === 0) minPrice = -Infinity;
+  if (maxPrice === 0) maxPrice = Infinity;
+
+  let menus = getFilteredMenusByPrice(minPrice, maxPrice, restaurants);
+
+  // Sort from cheapest
+  menus.sort((a, b) => {
+    const priceA = a.price;
+    const priceB = b.price;
+    if (priceA > priceB) {
+      return 1;
+    }
+    if (priceA < priceB) {
+      return -1;
+    }
+  
+    // names must be equal
+    return 0;
+  });
+
+  if ((minPrice === 0 || minPrice) && 
+      (maxPrice === 0 || maxPrice)) {
     renderFoodCards(menus);
   }
 });
