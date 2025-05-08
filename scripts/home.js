@@ -3,6 +3,44 @@ import { getDbAccounts, getCurrentAccount, setCurrentAccount, registerNewAccount
 if (getCurrentAccount()) window.location.href = '../restaurants.html';
 
 /*
+  Show modal logic
+*/
+
+const showModalLoginButtonEl = document.querySelector('.show-modal-login');
+const showModalRegisterButtonEl = document.querySelector('.show-modal-register');
+const modalLoginEl = document.querySelector('.modal-login');
+const modalRegisterEl = document.querySelector('.modal-register');
+
+const closeModalLoginButtonEl = document.querySelector('#close-modal-login');
+const closeModalRegisterButtonEl = document.querySelector('#close-modal-register');
+
+
+showModalLoginButtonEl.addEventListener('click', (event) => {
+  modalLoginEl.classList.remove('hidden');
+  modalRegisterEl.classList.add('hidden');
+
+});
+
+showModalRegisterButtonEl.addEventListener('click', (event) => {
+  modalRegisterEl.classList.remove('hidden');
+  modalLoginEl.classList.add('hidden');
+});
+
+
+closeModalLoginButtonEl.addEventListener('click', () => {
+  modalRegisterEl.classList.add('hidden');
+  modalLoginEl.classList.add('hidden');
+  console.log('a');
+});
+
+closeModalRegisterButtonEl.addEventListener('click', () => {
+  modalRegisterEl.classList.add('hidden');
+  modalLoginEl.classList.add('hidden');
+  console.log('a');
+});
+
+
+/*
   Login Logic
 */
 
@@ -31,6 +69,8 @@ loginFormEl.addEventListener('submit', (event) => {
     window.location.href = '../restaurants.html';
   } else {
     loginErrorEl.innerText = 'Wrong username or password';
+    loginUsernameEl.value = '';
+    loginPasswordEl.value = '';
   }
 });
 
@@ -55,4 +95,7 @@ registerFormEl.addEventListener('submit', (event) => {
   } else {
     registerInfoEl.innerText = 'Register failed';
   }
+
+  registerUsernameEl.value = '';
+  registerPasswordEl.value = '';
 });
