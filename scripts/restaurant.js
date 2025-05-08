@@ -204,11 +204,11 @@ function renderRestaurantPage() {
 
     }
 
-    giveReviewTextarea.value = '';
     
     saveRestaurantsToLocalStorage();
     updateCurrentRestaurantRating(restaurant);
     renderRestaurantPage();
+    // giveReviewTextarea.value = '';
   });
   
   /*

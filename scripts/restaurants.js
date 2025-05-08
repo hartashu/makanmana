@@ -127,8 +127,15 @@ sortByEl.addEventListener('change', () => {
   Filter
 */
 
-// Filter by location
+
+// querySelector HTML tags
 const filterLocationSelectEl = document.querySelector('#filter-location');
+const filterPriceMinInputEl = document.querySelector('#filter-price-min');
+const filterPriceMaxInputEl = document.querySelector('#filter-price-max');
+const filterCuisineInputEl = document.querySelector('#filter-cuisine');
+const filterRatingSelectEl = document.querySelector('#filter-rating');
+
+// Filter by location
 filterLocationSelectEl.addEventListener('change', () => {
   const location = filterLocationSelectEl.value;
   const menus = getFilteredMenusByLocation(location, restaurants);
@@ -137,9 +144,6 @@ filterLocationSelectEl.addEventListener('change', () => {
 });
 
 // Filter by price
-const filterPriceMinInputEl = document.querySelector('#filter-price-min');
-const filterPriceMaxInputEl = document.querySelector('#filter-price-max');
-
 filterPriceMinInputEl.addEventListener('change', () => { 
   let minPrice = Number(filterPriceMinInputEl.value);
   let maxPrice = Number(filterPriceMaxInputEl.value); 
@@ -201,7 +205,6 @@ filterPriceMaxInputEl.addEventListener('change', () => {
 });
 
 // Filter by cuisine
-const filterCuisineInputEl = document.querySelector('#filter-cuisine');
 filterCuisineInputEl.addEventListener('change', () => {
   const cuisine = filterCuisineInputEl.value;
   const menus = getFilteredMenusByCuisine(cuisine, restaurants);
@@ -210,7 +213,6 @@ filterCuisineInputEl.addEventListener('change', () => {
 });
 
 // Filter by rating
-const filterRatingSelectEl = document.querySelector('#filter-rating');
 filterRatingSelectEl.addEventListener('change', () => {
   const rating = Number(filterRatingSelectEl.value);
   const menus = getFilteredMenusByRating(rating, restaurants);

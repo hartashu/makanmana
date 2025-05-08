@@ -14,6 +14,9 @@ const modalRegisterEl = document.querySelector('.modal-register');
 const closeModalLoginButtonEl = document.querySelector('#close-modal-login');
 const closeModalRegisterButtonEl = document.querySelector('#close-modal-register');
 
+const loginErrorEl = document.querySelector('#login-error');
+const registerInfoEl = document.querySelector('#register-info');
+
 
 showModalLoginButtonEl.addEventListener('click', (event) => {
   modalLoginEl.classList.remove('hidden');
@@ -30,13 +33,16 @@ showModalRegisterButtonEl.addEventListener('click', (event) => {
 closeModalLoginButtonEl.addEventListener('click', () => {
   modalRegisterEl.classList.add('hidden');
   modalLoginEl.classList.add('hidden');
-  console.log('a');
+
+  loginErrorEl.innerText = '';
+
 });
 
 closeModalRegisterButtonEl.addEventListener('click', () => {
   modalRegisterEl.classList.add('hidden');
   modalLoginEl.classList.add('hidden');
-  console.log('a');
+
+  registerInfoEl.innerText = '';
 });
 
 
@@ -54,7 +60,7 @@ function isUserRegistered(username, password) {
 
 const loginUsernameEl = document.querySelector('#login-username');
 const loginPasswordEl = document.querySelector('#login-password');
-const loginErrorEl = document.querySelector('#login-error');
+
 const loginFormEl = document.querySelector('#login-form');
 
 loginFormEl.addEventListener('submit', (event) => {
@@ -80,7 +86,7 @@ loginFormEl.addEventListener('submit', (event) => {
 
 const registerUsernameEl = document.querySelector('#register-username');
 const registerPasswordEl = document.querySelector('#register-password');
-const registerInfoEl = document.querySelector('#register-info');
+
 const registerFormEl = document.querySelector('#register-form');
 
 registerFormEl.addEventListener('submit', (event) => {
